@@ -17,18 +17,22 @@ const props = defineProps({
         default: "200px"
     }
 });
-const dummyUrl = "/PurplePic.png";
+const dummyUrl = "/coding.png";
 </script>
 <template>
     <div class="image-frame">
-        <img :src="imageSrc || dummyUrl" :alt="altText" :width="width" :height="height" />
+        <img v-if="imageSrc" :src="imageSrc" :alt="altText" :width="width" :height="height" />
+        <img v-else :src="dummyUrl" :alt="altText" width="200px" height="200px" />
     </div>
 </template>
 <style scoped>
 .image-frame {
     width: fit-content;
-    padding: 10px;
-    border: 2px solid var(--color-text);
     margin: 20px;
+    overflow: hidden;
+}
+img {
+    border: 2px solid var(--color-text);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 </style>

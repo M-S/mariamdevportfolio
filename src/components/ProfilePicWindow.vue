@@ -20,12 +20,12 @@ const onZoomOut = () => {
 <template>
     <base-window-frame draggable="true" title="_mariam.png" size="small" bg-color="light-pink">
         <div class="contents">
-            <base-image-frame :class="{'zoom' : zoom, 'zoom-out': zoomOut}" image-src="/profilePic.jpeg"></base-image-frame>
+            <base-image-frame :class="{ 'zoom': zoom, 'zoom-out': zoomOut }" image-src="/profilePic.jpeg"></base-image-frame>
             <div class="magnifying-icons">
-                <svg class="icon" @mouseover="onZoom">
+                <svg class="icon" @click="onZoom">
                     <use xlink:href="../assets/sprites/solid.svg#magnifying-glass-plus"></use>
                 </svg>
-                <svg class="icon" @mouseover="onZoomOut">
+                <svg class="icon" @click="onZoomOut">
                     <use xlink:href="../assets/sprites/solid.svg#magnifying-glass-minus"></use>
                 </svg>
             </div>
@@ -51,13 +51,29 @@ const onZoomOut = () => {
 .magnifying-icons .icon {
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
+
 .zoom {
     transition: transform 2s;
     transform: scale(2);
 }
+
 .zoom-out {
     transition: transform 2s;
     transform: scale(0.5);
 }
-</style>
+
+@media(max-width: 700px) {
+    .magnifying-icons {
+        display: none;
+    }
+
+    .contents {
+        background-image: url('/security.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
+}</style>

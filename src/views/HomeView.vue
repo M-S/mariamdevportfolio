@@ -6,24 +6,32 @@ import TechBlogsVue from '@/components/TechBlogs.vue';
 <template>
   <div class="home">
     <div class="row-1">
-      <ProfilePicWindow style="position: relative; z-index: 1;" />
-      <AboutMeWindow style="position: relative; z-index: 2;" />
+      <ProfilePicWindow />
+      <AboutMeWindow />
     </div>
     <div class="row-2">
       <TechBlogsVue />
     </div>
   </div>
+  <div>
+    <a href="https://www.flaticon.com/free-stickers/coding" title="coding stickers">Coding stickers created by Stickers -
+      Flaticon</a>
+  </div>
 </template>
 
 <style scoped>
 .row-1 {
-  background-color: antiquewhite;
   border-bottom: var(--color-text);
 }
-
 @media (min-width: 1024px) {
   .home {
     min-height: 100vh;
+  }
+  .row-1 {
+    background-image: url('/coding.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center-bottom;
   }
 
   .row-1,
@@ -33,7 +41,6 @@ import TechBlogsVue from '@/components/TechBlogs.vue';
     gap: 20px;
     justify-items: center;
     vertical-align: middle;
-    background: var(--color-background);
   }
 
   .row-2 {
