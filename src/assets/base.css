@@ -20,10 +20,10 @@
   --mp-pink-light:#FFB3D2;
   --mp-green-light: #c1ff72;
 
-  --mp-divider-light-1: rgba(60, 60, 60, 0.29);
-  --mp-divider-light-2: rgba(60, 60, 60, 0.12);
-  --mp-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --mp-divider-dark-2: rgba(84, 84, 84, 0.48);
+  --mp-divider-light-1: rgba(0, 0, 0, 0.65);
+  --mp-divider-light-2: rgba(0, 0, 0, 0.48);
+  --mp-divider-dark-1: rgba(84, 84, 84, 0.35);
+  --mp-divider-dark-2: rgba(84, 84, 84, 0.18);
 
   --mp-text-light-1: var(--mp-indigo);
   --mp-text-light-2: rgba(60, 60, 60, 0.66);
@@ -105,4 +105,17 @@ p {
   font-size: 1.125em;
   line-height: 1.6;
   padding: 0 1.5em;
+}
+button {
+  font-size: 1.125em;
+  padding: 0.5em 1em;
+  margin: 1.5em;
+  border: 2px solid var(--color-border);
+  background: var(--color-background-soft);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+button:hover {
+  background: var(--color-background-mute);
 }

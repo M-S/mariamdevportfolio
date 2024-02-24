@@ -2,17 +2,19 @@
 interface Props {
     title?: string
     size?: string
-    color?: string
+    color?: string,
+    bgColor?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
     title: 'Title',
     size: 'medium',
-    color: 'orange'
+    color: 'orange',
+    bgColor: 'white'
 })
 </script>
 <template>
-    <div class="window-frame" :class="size">
+    <div class="window-frame" :class="[size, bgColor]">
         <div class="title-bar" :class="color">
             <span class="title">{{ props.title }}</span>
             <span class="icons">
@@ -38,7 +40,29 @@ const props = withDefaults(defineProps<Props>(), {
     background-color: #fff;
     margin: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80vw;
 }
+
+.window-frame.white {
+    background-color: #fff;
+}
+
+.window-frame.black {
+    background-color: #000;
+}
+
+.window-frame.pink {
+    background-color: var(--mp-pink);
+}
+
+.window-frame.light-pink {
+    background-color: var(--mp-pink-light);
+}
+
+.window-frame.light-green {
+    background-color: var(--mp-green-light);
+}
+
 
 .title-bar {
     display: flex;
@@ -71,22 +95,23 @@ const props = withDefaults(defineProps<Props>(), {
     margin-left: 6px;
 }
 
-.window-frame.small {
-    width: 300px;
-    height: 300px;
-}
+@media (min-width: 700px) {
+    .window-frame.small {
+        width: 300px;
+        height: 300px;
+    }
 
-.window-frame.medium {
-    width: 500px;
-    height: 500px;
-}
+    .window-frame.medium {
+        width: 500px;
+        height: 500px;
+    }
 
-.window-frame.large {
-    width: 800px;
-    height: 800px;
+    .window-frame.large {
+        width: 800px;
+        height: 800px;
+    }
 }
 
 .title {
     font-weight: bold;
-}
-</style>
+}</style>
