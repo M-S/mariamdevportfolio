@@ -5,22 +5,22 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue';
     <base-window-frame title="ABOUT" color="blue" size="medium">
         <div class="search-bar">
             <svg class="icon">
-                    <use xlink:href="../assets/sprites/solid.svg#chevron-left"></use>
-                </svg>
-                <svg class="icon">
-                    <use xlink:href="../assets/sprites/solid.svg#chevron-right"></use>
-                </svg>
+                <use xlink:href="../assets/sprites/solid.svg#chevron-left"></use>
+            </svg>
+            <svg class="icon">
+                <use xlink:href="../assets/sprites/solid.svg#chevron-right"></use>
+            </svg>
             <div class="search-input-box">
                 <svg class="icon">
                     <use xlink:href="../assets/sprites/solid.svg#magnifying-glass"></use>
                 </svg> Mariam Reba Alexander
             </div>
             <svg class="icon">
-                    <use xlink:href="../assets/sprites/solid.svg#rotate-right"></use>
-                </svg>
-                <svg class="icon">
-                    <use xlink:href="../assets/sprites/solid.svg#bars"></use>
-                </svg>
+                <use xlink:href="../assets/sprites/solid.svg#rotate-right"></use>
+            </svg>
+            <svg class="icon">
+                <use xlink:href="../assets/sprites/solid.svg#bars"></use>
+            </svg>
         </div>
         <div class="about-content">
             <p>Software Engineer working at Maersk, based in Copenhagen. Skilled in Vue, Cypress, and Jest with a passion
@@ -28,6 +28,9 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue';
                 solving complex front-end problems, secure coding, testing, DevOps, data analytics, and automation.
                 Tech conference speaker and tech blogger on dev.to platform.</p>
             <button>Read More</button>
+            <svg class="icon">
+                <use xlink:href="../assets/sprites/solid.svg#hourglass"></use>
+            </svg>
         </div>
 
     </base-window-frame>

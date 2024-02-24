@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
                 <svg class="icon">
                     <use xlink:href="../assets/sprites/regular.svg#window-maximize"></use>
                 </svg>
-                <svg class="icon">
+                <svg class="icon" @click="$emit('close')">
                     <use xlink:href="../assets/sprites/regular.svg#rectangle-xmark"></use>
                 </svg>
             </span>
@@ -41,6 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
     margin: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80vw;
+    overflow: hidden;
 }
 
 .window-frame.white {
@@ -93,15 +94,21 @@ const props = withDefaults(defineProps<Props>(), {
     height: 20px;
     margin-left: 6px;
 }
+.content {
+    height: 92%;
+    overflow: auto;
+    background: var(--color-background);
+}
 
 @media (min-width: 700px) {
+
     .window-frame.small {
         width: 300px;
         height: 300px;
     }
 
     .window-frame.medium {
-        width: 500px;
+        width: 600px;
         height: 500px;
     }
 
@@ -113,5 +120,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 .title {
     font-weight: bold;
+    max-width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 </style>
