@@ -15,7 +15,7 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue';
                     <use xlink:href="../assets/sprites/solid.svg#magnifying-glass"></use>
                 </svg> Mariam Reba Alexander
             </div>
-            <svg class="icon">
+            <svg class="icon rotate">
                 <use xlink:href="../assets/sprites/solid.svg#rotate-right"></use>
             </svg>
             <svg class="icon">
@@ -28,11 +28,7 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue';
                 solving complex front-end problems, secure coding, testing, DevOps, data analytics, and automation.
                 Tech conference speaker and tech blogger on dev.to platform.</p>
             <button>Read More</button>
-            <svg class="icon rotate">
-                <use xlink:href="../assets/sprites/solid.svg#hourglass"></use>
-            </svg>
         </div>
-
     </base-window-frame>
 </template>
 <style scoped>
@@ -60,8 +56,6 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue';
     border: 2px solid var(--color-text);
 }
 .rotate {
-    width: 30px;
-    height: 30px;
     transition: transform 2s;
 }
 

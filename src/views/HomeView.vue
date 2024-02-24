@@ -29,9 +29,10 @@ import TechBlogsVue from '@/components/TechBlogs.vue';
   }
   .row-1 {
     background-image: url('/coding.png');
-    background-size: contain;
+    background-size: 300px 300px;
     background-repeat: no-repeat;
-    background-position: center-bottom;
+    background-position: bottom left;
+    background-position-x: 125px;
   }
 
   .row-1,
@@ -45,6 +46,10 @@ import TechBlogsVue from '@/components/TechBlogs.vue';
 
   .row-2 {
     grid-template-columns: repeat(3, 1fr);
+    background-image: url('/writing.png');
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+    background-position: top right;
   }
 }
 </style>

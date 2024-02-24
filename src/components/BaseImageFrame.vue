@@ -17,11 +17,11 @@ const props = defineProps({
         default: "200px"
     }
 });
-const dummyUrl = "/coding.png";
+const dummyUrl = "/sandglass.png";
 </script>
 <template>
     <div class="image-frame">
-        <img v-if="imageSrc" :src="imageSrc" :alt="altText" :width="width" :height="height" />
+        <img class="image" v-if="imageSrc" :src="imageSrc" :alt="altText" :width="width" :height="height" />
         <img v-else :src="dummyUrl" :alt="altText" width="200px" height="200px" />
     </div>
 </template>
@@ -31,7 +31,7 @@ const dummyUrl = "/coding.png";
     margin: 20px;
     overflow: hidden;
 }
-img {
+.imgage {
     border: 2px solid var(--color-text);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
