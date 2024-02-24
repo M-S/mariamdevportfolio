@@ -9,13 +9,7 @@ const feedItems = ref<DevToArticleMeta[] | []>([]);
 const itemSelected = ref(0);
 const prevPossible = computed(() => itemSelected.value > 0);
 const nextPossible = computed(() => itemSelected.value < feedItems.value.length - 1);
-
 const showItem = (action = "prev") => {
-    console.log({
-        action,
-        feedItems: feedItems.value.length,
-        itemSelected: itemSelected.value
-    });
     if (action === "prev") {
         if (prevPossible.value) {
             itemSelected.value -= 1;
@@ -44,7 +38,7 @@ onMounted(async () => {
         Previous
     </button>
     <div class="blog-section">
-        <base-window-frame title="My Blogs" color="green" size="medium">
+        <base-window-frame title="Mariam's Blogs ✍🏼" color="green" size="medium">
         <div class="blog-content">
             <BaseImageFrame :imageSrc="feedItems?.[itemSelected]?.cover_image" width="400px" height="200px" :altText="feedItems?.[itemSelected]?.title"/>
             <div style="padding: 20px;">

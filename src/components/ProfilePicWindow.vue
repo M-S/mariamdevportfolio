@@ -1,20 +1,34 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import BaseWindowFrame from '@/components/BaseWindowFrame.vue';
 import BaseImageFrame from '@/components/BaseImageFrame.vue';
+const zoom = ref(false);
+const zoomOut = ref(false);
+const onZoom = () => {
+    zoom.value = true;
+    setTimeout(() => {
+        zoom.value = false;
+    }, 2000);
+};
+const onZoomOut = () => {
+    zoomOut.value = true;
+    setTimeout(() => {
+        zoomOut.value = false;
+    }, 2000);
+};
 </script>
 <template>
-    <base-window-frame title="" size="small" bg-color="light-pink">
+    <base-window-frame draggable="true" title="_mariam.png" size="small" bg-color="light-pink">
         <div class="contents">
-            <base-image-frame image-src="/profilePic.jpeg"></base-image-frame>
+            <base-image-frame :class="{'zoom' : zoom, 'zoom-out': zoomOut}" image-src="/profilePic.jpeg"></base-image-frame>
             <div class="magnifying-icons">
-                <svg class="icon">
+                <svg class="icon" @mouseover="onZoom">
                     <use xlink:href="../assets/sprites/solid.svg#magnifying-glass-plus"></use>
                 </svg>
-                <svg class="icon">
+                <svg class="icon" @mouseover="onZoomOut">
                     <use xlink:href="../assets/sprites/solid.svg#magnifying-glass-minus"></use>
                 </svg>
             </div>
-
         </div>
     </base-window-frame>
 </template>
@@ -33,8 +47,17 @@ import BaseImageFrame from '@/components/BaseImageFrame.vue';
     gap: 30px;
     width: 50px;
 }
+
 .magnifying-icons .icon {
     width: 20px;
     height: 20px;
+}
+.zoom {
+    transition: transform 2s;
+    transform: scale(2);
+}
+.zoom-out {
+    transition: transform 2s;
+    transform: scale(0.5);
 }
 </style>

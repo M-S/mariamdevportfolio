@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, defineProps, withDefaults } from 'vue';
 interface Props {
     title?: string
     size?: string
@@ -12,6 +13,13 @@ const props = withDefaults(defineProps<Props>(), {
     color: 'orange',
     bgColor: 'white'
 })
+const shake = ref(false);
+const close = () => {
+    shake.value = true;
+    setTimeout(() => {
+        shake.value = false;
+    }, 500);
+};
 </script>
 <template>
     <div class="window-frame" :class="[size, bgColor]">
@@ -24,7 +32,7 @@ const props = withDefaults(defineProps<Props>(), {
                 <svg class="icon">
                     <use xlink:href="../assets/sprites/regular.svg#window-maximize"></use>
                 </svg>
-                <svg class="icon" @click="$emit('close')">
+                <svg class="icon" :class="{ 'shake': shake }" @click="close">
                     <use xlink:href="../assets/sprites/regular.svg#rectangle-xmark"></use>
                 </svg>
             </span>
@@ -94,6 +102,7 @@ const props = withDefaults(defineProps<Props>(), {
     height: 20px;
     margin-left: 6px;
 }
+
 .content {
     height: 92%;
     overflow: auto;
@@ -124,4 +133,54 @@ const props = withDefaults(defineProps<Props>(), {
     white-space: nowrap;
     overflow: hidden;
 }
-</style>
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.shake {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}</style>
