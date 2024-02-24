@@ -70,7 +70,6 @@ const props = withDefaults(defineProps<Props>(), {
     align-items: center;
     padding: 10px;
     border-bottom: 2px solid var(--color-text);
-    background-color: #f0f0f0;
 }
 
 .title-bar.pink {
@@ -114,4 +113,5 @@ const props = withDefaults(defineProps<Props>(), {
 
 .title {
     font-weight: bold;
-}</style>
+}
+</style>

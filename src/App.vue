@@ -24,6 +24,7 @@ import { RouterLink, RouterView } from 'vue-router';
 
 <style scoped>
 .navbar {
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
