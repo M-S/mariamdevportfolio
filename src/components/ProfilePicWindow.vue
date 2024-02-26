@@ -20,7 +20,7 @@ const onZoomOut = () => {
 <template>
     <base-window-frame class="profile-window" draggable="true" title="_mariam.png" size="small" bg-color="light-pink" width="fit-content">
         <div class="contents">
-            <base-image-frame :class="{ 'zoom': zoom, 'zoom-out': zoomOut }" image-src="/profilePic.jpeg"></base-image-frame>
+            <img src="/profile.png" :class="{ 'zoom': zoom, 'zoom-out': zoomOut }" alt="profile" width="200px" height="200px" />
             <div class="magnifying-icons">
                 <svg class="icon" @click="onZoom">
                     <use xlink:href="../assets/sprites/solid.svg#magnifying-glass-plus"></use>

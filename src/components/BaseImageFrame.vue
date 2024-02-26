@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
     width: {
         type: String,
         default: "200px"
@@ -21,7 +21,7 @@ const dummyUrl = "/writing.png";
 </script>
 <template>
     <div class="image-frame">
-        <img class="image" v-if="imageSrc" :src="imageSrc" :alt="altText" :width="width" :height="height" />
+        <img v-if="imageSrc" class="image" :src="imageSrc" :alt="altText" :width="width" :height="height" />
         <img v-else :src="dummyUrl" :alt="altText" width="200px" height="200px" />
     </div>
 </template>
