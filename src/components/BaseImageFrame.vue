@@ -17,7 +17,7 @@ const props = defineProps({
         default: "200px"
     }
 });
-const dummyUrl = "/sandglass.png";
+const dummyUrl = "/writing.png";
 </script>
 <template>
     <div class="image-frame">

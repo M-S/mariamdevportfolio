@@ -4,14 +4,16 @@ interface Props {
     title?: string
     size?: string
     color?: string,
-    bgColor?: string
+    bgColor?: string,
+    width?: string,
+    height?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
     title: 'Title',
     size: 'medium',
     color: 'orange',
-    bgColor: 'white'
+    bgColor: 'white',
 })
 const shake = ref(false);
 const close = () => {
@@ -20,9 +22,21 @@ const close = () => {
         shake.value = false;
     }, 500);
 };
+const windowCustomSize = ref({});
+if(props.width) {
+    windowCustomSize.value = {
+        width: props.width
+    };
+}
+if(props.height) {
+    windowCustomSize.value = {
+        ...windowCustomSize.value,
+        height: props.height
+    };
+}
 </script>
 <template>
-    <div class="window-frame" :class="[size, bgColor]">
+    <div class="window-frame" :class="[size, bgColor]" :style="windowCustomSize">
         <div class="title-bar" :class="color">
             <span class="title">{{ props.title }}</span>
             <span class="icons">
@@ -53,7 +67,7 @@ const close = () => {
 }
 
 .window-frame.white {
-    background-color: #fff;
+    background-color: var(--color-background);
 }
 
 .window-frame.black {
@@ -109,7 +123,7 @@ const close = () => {
     background: var(--color-background);
 }
 
-@media (min-width: 700px) {
+@media (min-width: 800px) {
 
     .window-frame.small {
         width: 300px;
@@ -125,6 +139,7 @@ const close = () => {
         width: 800px;
         height: 800px;
     }
+
 }
 
 .title {
@@ -183,4 +198,5 @@ const close = () => {
 .shake {
     animation: shake 0.5s;
     animation-iteration-count: infinite;
-}</style>
+}
+</style>
