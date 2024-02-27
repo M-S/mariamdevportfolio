@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseWindowFrame from '@/components/BaseWindowFrame.vue';
+import router from '@/router';
 </script>
 <template>
     <base-window-frame title="Hello 👋🏼" color="blue" size="medium">
@@ -27,7 +28,7 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue';
                 for
                 solving complex front-end problems, secure coding, testing, DevOps, data analytics, and automation.
                 Tech conference speaker and tech blogger on dev.to platform.</p>
-            <button>Read More</button>
+            <button @click="router.push('/about')">Read More</button>
         </div>
     </base-window-frame>
 </template>
