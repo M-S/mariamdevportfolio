@@ -111,12 +111,20 @@ button {
   font-size: 1.125em;
   padding: 0.5em 1em;
   margin: 1.5em;
-  border: 2px solid var(--color-border);
-  background: var(--color-background-soft);
+  border: 2px solid var(--color-text);
+  background: var(--color-background);
   color: var(--color-text);
   cursor: pointer;
   transition: background-color 0.5s;
+  white-space: nowrap;
 }
 button:hover {
   background: var(--color-background-mute);
+  transform: scale(1.05);
+}
+button:disabled {
+  background: var(--color-background-soft);
+  color: var(--color-text);
+  cursor: not-allowed;
+  transform: none;
 }

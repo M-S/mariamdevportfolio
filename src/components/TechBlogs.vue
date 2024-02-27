@@ -32,7 +32,7 @@ onMounted(async () => {
 </script>
 <template>
     <div class="blog-section">
-        <base-window-frame title="Mariam's Blogs ✍🏼" color="green" size="medium">
+        <base-window-frame title="Mariam's Blogs ✍🏼" color="green" size="medium" height="auto">
             <div class="blog-content">
                 <BaseImageFrame :imageSrc="feedItems?.[itemSelected]?.cover_image" width="400px" height="200px"
                     :altText="feedItems?.[itemSelected]?.title" />
@@ -64,12 +64,6 @@ onMounted(async () => {
 <style scoped>
 button {
     align-self: center;
-    white-space: nowrap;
-}
-
-button:disabled {
-    cursor: not-allowed;
-    background-color: var(--color-white);
 }
 
 .blog-section {
@@ -84,13 +78,15 @@ button:disabled {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px solid var(--color-text);
+    margin: 20px;
 }
 
 .blog-count {
     text-align: center;
     font-weight: bold;
     padding: 10px;
-    border: 2px solid var(--color-text);
+    border: 1px solid var(--color-text);
     width: fit-content;
 }
 
