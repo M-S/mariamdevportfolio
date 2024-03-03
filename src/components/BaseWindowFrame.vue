@@ -23,12 +23,12 @@ const close = () => {
     }, 500);
 };
 const windowCustomSize = ref({});
-if(props.width) {
+if (props.width) {
     windowCustomSize.value = {
         width: props.width
     };
 }
-if(props.height) {
+if (props.height) {
     windowCustomSize.value = {
         ...windowCustomSize.value,
         height: props.height
@@ -60,7 +60,7 @@ if(props.height) {
 .window-frame {
     border: 2px solid var(--color-text);
     background-color: #fff;
-    margin: 20px;
+    margin: 20px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80vw;
     overflow: hidden;
@@ -124,6 +124,9 @@ if(props.height) {
 }
 
 @media (min-width: 800px) {
+    .window-frame {
+        margin: 40px 0;
+    }
 
     .window-frame.small {
         width: 300px;

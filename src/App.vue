@@ -30,23 +30,23 @@ import { RouterLink, RouterView } from 'vue-router';
   align-items: center;
   padding: 10px 20px;
   border: 2px solid var(--color-text);
-  background-color: #ff80b4;
+  background-color: var(--mp-pink);
 }
 
 .navbar a {
   text-decoration: none;
-  color: #333;
+  color: var(--color-text);
   font-weight: bold;
   cursor: pointer;
   padding: 4px;
 }
 
 .navbar a:hover {
-  color: #000;
-  background-color: #e0d2ef;
+  color: var(--mp-black);
+  background-color: var(--mp-purple-light);
 }
 
 .navbar a.active {
-  color: #000;
+  color: var(--mp-black);
 }
 </style>
