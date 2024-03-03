@@ -80,6 +80,7 @@ button {
     align-items: center;
     border: 2px solid var(--color-text);
     margin: 20px;
+    overflow: hidden;
 }
 
 .blog-count {

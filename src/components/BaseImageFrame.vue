@@ -31,7 +31,7 @@ const dummyUrl = "/writing.png";
     margin: 20px;
     overflow: hidden;
 }
-.imgage {
+.image {
     border: 2px solid var(--color-text);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
