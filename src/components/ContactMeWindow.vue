@@ -2,7 +2,7 @@
 import BaseWindowFrameVue from './BaseWindowFrame.vue';
 </script>
 <template>
-    <BaseWindowFrameVue class="contact-me" color="white" title="📹 Contact or Follow Me" height="auto">
+    <BaseWindowFrameVue class="contact-me" color="white" title="📹 Contact or Follow Me" height="fit-content" width="fit-content">
         <div class="social-links">
             <div>
                 <a href="mailto:gigabit.02shuffle@icloud.com" target="_blank">

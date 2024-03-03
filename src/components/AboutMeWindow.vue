@@ -52,10 +52,17 @@ import router from '@/router';
 
 .about-content {
     padding: 20px;
-    margin: 5px 20px;
+    margin: 5px 20px 20px 20px;
     text-align: center;
     border: 2px solid var(--color-text);
 }
+
+@media (min-width: 768px) {
+    .about-content {
+        margin-bottom: 5px;
+    }
+}
+
 .rotate {
     transition: transform 2s;
 }

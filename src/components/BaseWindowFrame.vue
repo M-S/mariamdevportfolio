@@ -22,21 +22,34 @@ const close = () => {
         shake.value = false;
     }, 500);
 };
-const windowCustomSize = ref({});
-if (props.width) {
-    windowCustomSize.value = {
-        width: props.width
-    };
+const width = ref(props.width);
+const height = ref(props.height);
+if(!width.value) {
+    if(props.size === 'small') {
+        width.value = '300px';
+    } else if(props.size === 'medium') {
+        width.value = '600px';
+    } else if(props.size === 'large') {
+        width.value = '800px';
+    } else {
+        width.value = '600px';
+    }
 }
-if (props.height) {
-    windowCustomSize.value = {
-        ...windowCustomSize.value,
-        height: props.height
-    };
+if(!height.value) {
+    if(props.size === 'small') {
+        height.value = '300px';
+    } else if(props.size === 'medium') {
+        height.value = '500px';
+    } else if(props.size === 'large') {
+        height.value = '800px';
+    } else {
+        height.value = 'fit-content';
+    }
 }
+
 </script>
 <template>
-    <div class="window-frame" :class="[size, bgColor]" :style="windowCustomSize">
+    <div class="window-frame" :class="[bgColor]">
         <div class="title-bar" :class="color">
             <span class="title">{{ props.title }}</span>
             <span class="icons">
@@ -63,6 +76,7 @@ if (props.height) {
     margin: 20px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80vw;
+    height: auto;
     overflow: hidden;
 }
 
@@ -119,28 +133,15 @@ if (props.height) {
 
 .content {
     height: 92%;
-    overflow: auto;
     background: var(--color-background);
 }
 
 @media (min-width: 800px) {
+
     .window-frame {
         margin: 40px 0;
-    }
-
-    .window-frame.small {
-        width: 300px;
-        height: 300px;
-    }
-
-    .window-frame.medium {
-        width: 600px;
-        height: 500px;
-    }
-
-    .window-frame.large {
-        width: 800px;
-        height: 800px;
+        width: v-bind('width');
+        height: v-bind('height');
     }
 
 }

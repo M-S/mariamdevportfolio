@@ -18,7 +18,7 @@ const onZoomOut = () => {
 };
 </script>
 <template>
-    <base-window-frame class="profile-window" draggable="true" title="_mariam.png" size="small" bg-color="light-pink" width="fit-content">
+    <base-window-frame class="profile-window" draggable="true" title="_mariam.png" size="small" bg-color="light-pink" height="250px">
         <div class="contents">
             <img src="/profile.png" :class="{ 'zoom': zoom, 'zoom-out': zoomOut }" alt="profile" width="200px" height="200px" />
             <div class="magnifying-icons">
@@ -37,8 +37,10 @@ const onZoomOut = () => {
     justify-self: center;
 }
 .contents {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
+    justify-items: center;
 }
 
 .magnifying-icons {
@@ -52,8 +54,8 @@ const onZoomOut = () => {
 }
 
 .magnifying-icons .icon {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 
@@ -68,8 +70,8 @@ const onZoomOut = () => {
 }
 
 @media(max-width: 700px) {
-    .magnifying-icons {
+    /* .magnifying-icons {
         display: none;
-    }
+    } */
 
 }</style>

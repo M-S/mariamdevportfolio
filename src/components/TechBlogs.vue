@@ -32,7 +32,7 @@ onMounted(async () => {
 </script>
 <template>
     <div class="blog-section">
-        <base-window-frame title="Mariam's Blogs ✍🏼" color="green" size="medium" height="auto">
+        <base-window-frame title="Mariam's Blogs ✍🏼" color="green" size="medium" height="590px">
             <div class="blog-content">
                 <BaseImageFrame :imageSrc="feedItems?.[itemSelected]?.cover_image" width="400px" height="200px"
                     :altText="feedItems?.[itemSelected]?.title" />
