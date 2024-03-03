@@ -1,8 +1,16 @@
+<script setup lang="ts">
+import { computed } from 'vue';
+const currentDate = new Date();
+const startWorkDate = "2017-01-01";
+const yearsOfExperience = computed(() => (Math.floor((currentDate.getTime() - new Date(startWorkDate).getTime()) / (1000 * 60 * 60 * 24 * 365))));
+
+</script>
 <template>
   <div class="about">
     <h1>About me</h1>
     <p>
-      I am a frontend developer and a tech speaker and has experience for over 6 years in the IT industry. I started with
+      I am a frontend developer and a tech speaker and has experience for over {{ yearsOfExperience }} years in the IT
+      industry. I started with
       open-source microcontrollers and Android UI, where I used Python, BASIC, Java, C, and C++ on various projects.
       I have been working as a frontend web developer, since 2017 and have mostly worked with frameworks like Angular and
       Vue. I have also created company websites in Shopify.
@@ -26,8 +34,8 @@
 </template>
 
 <style>
-  .about {
-    min-height: 100vh;
-    min-width: 80vw;
-  }
+.about {
+  min-height: 100vh;
+  min-width: 80vw;
+}
 </style>
