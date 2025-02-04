@@ -27,7 +27,7 @@ import router from '@/router';
             <p>Software Engineer working at Maersk, based in Copenhagen. Skilled in Vue, Cypress, and Jest with a
                 passion
                 for
-                solving complex front-end problems, secure coding, testing, DevOps, data analytics, and automation.
+                solving complex front-end problems, secure coding, testing and automation.
                 <a href="https://sessionize.com/MariamReba/" target="_blank">Tech conference speaker</a> and <a
                     href="https://dev.to/ms_74" target="_blank">tech
                     blogger</a>.

@@ -29,15 +29,6 @@ import BaseWindowFrameVue from './BaseWindowFrame.vue';
 }
 
 @media (min-width: 1024px) {
-    .social-links {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 1fr;
-        gap: 40px;
-        justify-items: center;
-        align-items: center;
-        margin: 30px;
-    }
 
     .social-links img {
         cursor: pointer;

@@ -9,32 +9,34 @@ const yearsOfExperience = computed(() => (Math.floor((currentDate.getTime() - ne
   <div class="about">
     <h1>About me</h1>
     <p>
-      I am a frontend developer and a tech speaker and has experience for over {{ yearsOfExperience }} years in the IT
-      industry.
-      I have been working as a frontend web developer, since 2017 and have mostly worked with frameworks like Angular
-      and
-      Vue. I have also created company websites in Shopify.
+      I am a Software Engineer at Maersk, based in Copenhagen, Denmark, with over {{ yearsOfExperience
+      }} years of experience in the IT industry. Since 2017, I have worked as a Frontend Web Developer, primarily using
+      frameworks such as Angular and Vue. Additionally, I have developed company websites using Shopify. </p>
 
-      Working alongside agile teams, I've tackled a wide range of exciting projects, from developing quote and booking
-      applications, dashboards, to integrating Bing maps for container and ship tracking. Recently, I had the
-      opportunity
-      to build quote and booking systems for Maersk Air and LCL product, using Vue.
-    </p>
-    <p>My proficiency extends beyond frontend development, as I'm skilled in an array of frameworks and tools such as
-      Cypress, Jest, and Vitest for testing, Github Actions for CI/CD, and Figma and Miro for design. Additionally, I've
-      am also serving as a Frontend Community host, Cyber Security Champion, and Conference Speaker about web
-      technologies.</p>
-    <p>I am ISC2 certified for Cybersecurity and I have a desire for continuous learning and actively pursuing CompTIA
-      Security+ certification, Google Cybersecurity Professional certification and the OSCP penetration testing exam,
-      with a strong passion for cybersecurity roles where I can effectively leverage my programming skills. I am eager
-      to contribute to a dynamic team and tackle real-world security challenges.
+    <p>Working alongside agile teams, I've engaged in a variety of exciting projects, including the development of quote
+      and booking applications, dashboards, and the integration of Bing Maps for container and ship tracking. Currently,
+      I am involved in building quote and booking systems for Maersk Air and LCL cargo, where I have played a
+      significant role in migrating to Vue 3 and TypeScript. I have also contributed to the creation of shared design
+      system components and improved automation workflows and libraries.
     </p>
     <p>
-      I'm also a tech blogger, sharing my expertise and insights on dev.to to inspire and educate others.
+      I am skilled in tools such as Cypress, Jest, and Vitest for testing, as well as GitHub Actions for CI/CD.
+      Additionally, I have acted as a Frontend Developer Community Host and Coordinator for company events. I am
+      passionate about secure coding practices and am a member of the Cybersecurity Champions group at Maersk. I have
+      participated as a speaker at conferences and meetups, discussing frontend technologies and security best
+      practices.
     </p>
     <p>
-      My ultimate goal is to create innovative, secure, and reliable solutions that make a positive impact on businesses
-      and communities. Through my tireless efforts, I strive to improve lives and elevate the industry as a whole.
+      I am ISC2 certified in cybersecurity and have a strong desire for continuous learning. I am actively pursuing the
+      CompTIA Security+ certification and the Google Cybersecurity Professional certification and preparing for the OSCP
+      penetration testing exam, all with a keen interest in cybersecurity roles where I can effectively leverage my
+      programming skills. I am eager to contribute to a dynamic team and address real-world security challenges.
+    </p>
+    <p>
+      In addition to my professional work, I am a tech blogger, sharing my expertise and insights on dev.to to inspire
+      and educate others. My ultimate goal is to create innovative, secure, and reliable solutions that positively
+      impact businesses and communities. Through my efforts, I strive to improve lives and elevate the industry as a
+      whole.
     </p>
   </div>
 </template>
