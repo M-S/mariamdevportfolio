@@ -105,4 +105,5 @@ a:hover {
 a::after {
     text-decoration: none;
     content: " 🔗";
-}</style>
+}
+</style>

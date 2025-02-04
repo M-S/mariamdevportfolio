@@ -10,7 +10,7 @@
 
   --mp-indigo: #2c3e50;
   --mp-pink: #ff80b4;
-  --mp-orange:#FA643F;
+  --mp-orange: #fa643f;
   --mp-green: #2ecc71;
   --mp-blue: #3498db;
   --mp-red: #e74c3c;
@@ -18,7 +18,7 @@
   --mp-purple: #9b59b6;
   --mp-purple-light: #e0d2ef;
   --mp-cyan: #1abc9c;
-  --mp-pink-light:#FFB3D2;
+  --mp-pink-light: #ffb3d2;
   --mp-green-light: #c1ff72;
 
   --mp-divider-light-1: rgba(0, 0, 0, 0.65);
@@ -57,7 +57,9 @@
     --color-border-hover: var(--mp-divider-dark-1);
 
     --color-heading: var(--mp-text-dark-1);
-    --color-text: var(--mp-text-dark-2);
+    --color-text: var(--mp-text-dark-1);
+
+    --section-gap: 160px;
   }
 }
 
@@ -95,7 +97,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--color-heading);
   margin: 1.5em 0 1em;
   font-weight: 600;

@@ -19,27 +19,45 @@ import ContactMeWindow from '@/components/ContactMeWindow.vue';
     </div>
   </div>
   <div>
-    <a href="https://www.flaticon.com/free-stickers/coding" title="coding stickers">Coding stickers created by Stickers -
+    <a href="https://www.flaticon.com/free-stickers/coding" title="coding stickers">Coding stickers created by Stickers
+      -
       Flaticon</a>
   </div>
 </template>
 
 <style scoped>
- .home {
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: repeat(3, auto);
-    gap: 20px;
-    justify-items: center;
+.home {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  gap: 20px;
+  justify-items: center;
+
+  a {
+    color: var(--mp-blue);
+    font-weight: bold;
+    font-size: 1.5em;
   }
-  .row-1,
-  .row-2,
-  .row-3 {
-    display: grid;
-    gap: 20px;
-    justify-items: center;
-    vertical-align: middle;
+
+  a:hover {
+    color: var(--color-bg);
+    cursor: pointer;
   }
+
+  a::after {
+    text-decoration: none;
+    content: " 🔗";
+  }
+}
+
+.row-1,
+.row-2,
+.row-3 {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+  vertical-align: middle;
+}
 
 
 @media (min-width: 1024px) {
@@ -63,4 +81,5 @@ import ContactMeWindow from '@/components/ContactMeWindow.vue';
     grid-template-columns: 2fr 1fr;
   }
 
-}</style>
+}
+</style>
