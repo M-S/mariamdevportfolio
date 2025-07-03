@@ -24,23 +24,23 @@ const close = () => {
 };
 const width = ref(props.width);
 const height = ref(props.height);
-if(!width.value) {
-    if(props.size === 'small') {
+if (!width.value) {
+    if (props.size === 'small') {
         width.value = '300px';
-    } else if(props.size === 'medium') {
+    } else if (props.size === 'medium') {
         width.value = '600px';
-    } else if(props.size === 'large') {
+    } else if (props.size === 'large') {
         width.value = '800px';
     } else {
         width.value = '600px';
     }
 }
-if(!height.value) {
-    if(props.size === 'small') {
+if (!height.value) {
+    if (props.size === 'small') {
         height.value = '300px';
-    } else if(props.size === 'medium') {
+    } else if (props.size === 'medium') {
         height.value = '500px';
-    } else if(props.size === 'large') {
+    } else if (props.size === 'large') {
         height.value = '800px';
     } else {
         height.value = 'fit-content';
@@ -78,6 +78,7 @@ if(!height.value) {
     width: 80vw;
     height: auto;
     overflow: hidden;
+    border-radius: 5px;
 }
 
 .window-frame.white {

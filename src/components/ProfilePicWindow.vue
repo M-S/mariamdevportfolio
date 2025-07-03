@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import BaseWindowFrame from '@/components/BaseWindowFrame.vue';
-import BaseImageFrame from '@/components/BaseImageFrame.vue';
 const zoom = ref(false);
 const zoomOut = ref(false);
 const onZoom = () => {

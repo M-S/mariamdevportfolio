@@ -27,8 +27,7 @@ const yearsOfExperience = computed(() => (Math.floor((currentDate.getTime() - ne
       practices.
     </p>
     <p>
-      I am ISC2 certified in cybersecurity and have a strong desire for continuous learning. I am actively pursuing the
-      CompTIA Security+ certification and the Google Cybersecurity Professional certification and preparing for the OSCP
+      I am ISC2 certified in cybersecurity and CompTIA Security+. I am actively pursuing the OSCP
       penetration testing exam, all with a keen interest in cybersecurity roles where I can effectively leverage my
       programming skills. I am eager to contribute to a dynamic team and address real-world security challenges.
     </p>
