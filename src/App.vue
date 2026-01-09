@@ -14,6 +14,7 @@ import { RouterLink, RouterView } from 'vue-router';
         </RouterLink>
       </div>
       <div class="sub-menu">
+        <RouterLink to="/speaking-events">Speaking Events</RouterLink>&nbsp;|&nbsp;
         <RouterLink to="/about">About</RouterLink>
       </div>
     </nav>

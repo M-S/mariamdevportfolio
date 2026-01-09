@@ -1,0 +1,63 @@
+{
+  "speaker": {
+    "firstName": "Mariam reba",
+    "lastName": "Alexander",
+    "tagline": "Software Engineer at Maersk",
+    "bio": "Software Engineer, Cyber Security Champion at Maersk. Passionate about frontend development, secure coding practices, testing, Devops, data analytics and automation. I am also certified in Cybersecurity by ISC2 and CompTIA Security +. Occasionally writes blogs at https://dev.to/ms_74 and speaks at conferences. My goal is to make secure and quality solutions that benefits businesses and makes peoples lives easier.",
+    "speakerProfileUrl": "https://sessionize.com/MariamReba",
+    "photoUrl": "https://sessionize.com/image/855b-200o200o2-JqpN33J2DSVCghgz1RUbzi.jpg",
+    "photoLargeUrl": "https://sessionize.com/image/7f28-1000o1000o1-JqpN33J2DSVCghgz1RUbzi.jpg"
+  },
+  "sessions": [
+    {
+      "id": 156812,
+      "title": "Secure coding in the age of AI",
+      "description": "In this age, we see an explosion in the use of AI-powered applications. AI has also enabled non-technical people without prior coding experience to write code. This is a major concern, especially from a security perspective, because there is no guarantee that secure coding practices are followed or that the code is reviewed for design flaws, which usually require expert human oversight beyond AI.\r\n\r\nThis problem becomes even more serious when you look at recent npm supply chain attacks, particularly typosquatting attacks, where malicious packages are deliberately named to look like popular libraries. AI-generated code that blindly suggests or auto-inserts dependencies without proper review can easily pull in these malicious packages, indirectly contributing to such attacks. When developers trust AI output without verifying package names, maintainers, or reputations, they increase the risk of introducing compromised dependencies into their applications.\r\n\r\nIn this talk, I will discuss common application vulnerabilities, how to prevent them, and cover foundational secure coding practices to follow during web development. I will also address how to rigorously review AI-generated code and its dependencies, especially third-party packages, before deploying anything to production.",
+      "sessionUrl": "https://sessionize.com/s/MariamReba/secure-coding-in-the-age-of-ai/156812",
+      "languageCode": "en",
+      "language": "English"
+    }
+  ],
+  "events": [
+    {
+      "id": 1007338,
+      "name": "DevTalks Romania",
+      "eventStartDate": "2023-06-21T00:00:00Z",
+      "eventEndDate": "2023-06-22T00:00:00Z",
+      "location": "Bucharest, Romania",
+      "website": "https://www.devtalks.ro/"
+    },
+    {
+      "id": 9641,
+      "name": "DeveloperWeek Europe 2023",
+      "eventStartDate": "2023-04-26T00:00:00",
+      "eventEndDate": "2023-04-27T00:00:00",
+      "location": null,
+      "website": "https://www.developerweek.com/europe"
+    },
+    {
+      "id": 1006174,
+      "name": "Vuejs Amsterdam",
+      "eventStartDate": "2023-02-09T00:00:00Z",
+      "eventEndDate": "2023-02-10T00:00:00Z",
+      "location": "Amsterdam, The Netherlands",
+      "website": "https://vuejs.amsterdam/"
+    },
+    {
+      "id": 1004764,
+      "name": "JSWorld Conference Online",
+      "eventStartDate": "2022-02-09T00:00:00Z",
+      "eventEndDate": "2022-02-11T00:00:00Z",
+      "location": null,
+      "website": "https://frontenddeveloperlove.com/free"
+    },
+    {
+      "id": 1006173,
+      "name": "DevFest 2021 | Gothenburg, Sweden",
+      "eventStartDate": "2021-11-12T00:00:00Z",
+      "eventEndDate": "2021-11-12T00:00:00Z",
+      "location": "Göteborg, Sweden",
+      "website": "https://www.gdgwestsweden.com/devfest2021"
+    }
+  ]
+}

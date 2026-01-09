@@ -14,13 +14,8 @@ import StickyNote from '@/components/BaseStickyNote.vue';
     </div>
     <div class="row-3">
       <CertificationsWindow />
-      <StickyNote>
-        <h2>My Cyber Learning Profiles</h2>
-        <h3>Hackthebox</h3>
-        <p>Student ID: HTB-95B6A9AFA3</p>
-        <h3>Secure Code Warrior</h3>
-        <p><a href="https://portal.securecodewarrior.com/#/stats/62605a718feac6007f2642c3" target="_blank">Profile</a>
-        </p>
+      <StickyNote class="badge-container">
+        <h2>My Badges</h2>
         <h3>TryHackMe</h3>
         <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4444453"
           style='border:none;'></iframe>
@@ -77,6 +72,11 @@ import StickyNote from '@/components/BaseStickyNote.vue';
   vertical-align: middle;
 }
 
+.badge-container {
+  h2, h3 {
+    color: var(--mp-black);
+  }
+}
 
 @media (min-width: 1024px) {
   .row-1 {

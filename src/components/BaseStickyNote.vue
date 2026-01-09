@@ -21,6 +21,7 @@ const props = defineProps<Props>();
     font-size: 14px;
     line-height: 1.5;
     max-width: 400px;
+    max-height: 400px;
     position: sticky;
     top: 20px;
     padding: 10px;

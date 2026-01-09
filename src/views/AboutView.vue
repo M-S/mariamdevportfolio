@@ -11,7 +11,7 @@ const yearsOfExperience = computed(() => (Math.floor((currentDate.getTime() - ne
     <p>
       I am a Software Engineer at Maersk, based in Copenhagen, Denmark, with over {{ yearsOfExperience
       }} years of experience in the IT industry. Since 2017, I have worked as a Frontend Web Developer, primarily using
-      frameworks such as Angular and Vue. Additionally, I have developed company websites using Shopify. </p>
+      frameworks such as Angular and Vue. </p>
 
     <p>Working alongside agile teams, I've engaged in a variety of exciting projects, including the development of quote
       and booking applications, dashboards, and the integration of Bing Maps for container and ship tracking. Currently,
@@ -27,9 +27,7 @@ const yearsOfExperience = computed(() => (Math.floor((currentDate.getTime() - ne
       practices.
     </p>
     <p>
-      I am ISC2 certified in cybersecurity and CompTIA Security+. I am actively pursuing the OSCP
-      penetration testing exam, all with a keen interest in cybersecurity roles where I can effectively leverage my
-      programming skills. I am eager to contribute to a dynamic team and address real-world security challenges.
+      I am also ISC2 certified in Cybersecurity and CompTIA Security+.
     </p>
     <p>
       In addition to my professional work, I am a tech blogger, sharing my expertise and insights on dev.to to inspire
@@ -42,7 +40,6 @@ const yearsOfExperience = computed(() => (Math.floor((currentDate.getTime() - ne
 
 <style>
 .about {
-  min-height: 100vh;
-  min-width: 80vw;
+  width: 100%;
 }
 </style>
