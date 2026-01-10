@@ -1,5 +1,10 @@
 @import './base.css';
 
+h1, h2 {
+    display: flex;
+    justify-content: center;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -12,6 +17,9 @@
   fill: var(--color-text);
   margin: 0 2px;
   padding: 0;
+  &.no-darkscheme {
+    fill: var(--mp-black);
+  }
 }
 
 @media (hover: hover) {

@@ -21,21 +21,21 @@ import StickyNote from '@/components/BaseStickyNote.vue';
           style='border:none;'></iframe>
       </StickyNote>
     </div>
-    <div class="row-3">
+    <div id="contact-section" class="row-3">
       <ContactMeWindow />
       <img class="social-media" src="/social-media.png" alt="social media icons" width="200px">
     </div>
-    <div class="row-2">
+    <div id="blog-section" class="row-2">
       <TechBlogsVue />
     </div>
-
   </div>
-  <div>
-    <a href="https://www.flaticon.com/free-stickers/coding" title="coding stickers">Coding stickers created by Stickers
-      -
-      Flaticon</a>,
+  <div class="credits">
+    Credits:
+    <a href="https://www.flaticon.com/free-stickers/coding" title="coding stickers">Coding stickers created by Stickers - Flaticon</a>|
     <a href="https://www.flaticon.com/free-stickers/certificate" title="certificate stickers">Certificate stickers
-      created by Stickers - Flaticon</a>
+      created by Stickers - Flaticon</a> |
+    <a href="https://www.flaticon.com/free-icons/menu" title="menu icons">Menu icons created by Febrian Hidayat - Flaticon</a>|
+    <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by ariefstudio - Flaticon</a>
   </div>
 </template>
 
@@ -99,7 +99,13 @@ import StickyNote from '@/components/BaseStickyNote.vue';
     grid-template-columns: 2fr 1fr;
   }
 }
-a {
-  color: var(--mp-blue);
+.credits {
+  display: flex;
+  justify-content: center;
+  font-size: 8px;
+  a {
+    color: var(--mp-blue);
+  }
 }
+
 </style>
