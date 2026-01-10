@@ -98,6 +98,8 @@ import StickyNote from '@/components/BaseStickyNote.vue';
     margin: 20px;
     grid-template-columns: 2fr 1fr;
   }
-
+}
+a {
+  color: var(--mp-blue);
 }
 </style>

@@ -3,7 +3,7 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue'
 import router from '@/router'
 </script>
 <template>
-  <base-window-frame title="Hello 👋🏼" color="blue" size="medium">
+  <base-window-frame title="Hello 👋🏼" color="blue" size="medium" height="auto">
     <div class="search-bar">
       <svg class="icon">
         <use xlink:href="../assets/sprites/solid.svg#chevron-left"></use>
@@ -73,12 +73,6 @@ a::after {
   margin: 5px 20px 20px 20px;
   text-align: center;
   border: 2px solid var(--color-text);
-}
-
-@media (min-width: 768px) {
-  .about-content {
-    margin-bottom: 5px;
-  }
 }
 
 .rotate {
