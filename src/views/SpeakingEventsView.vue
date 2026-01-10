@@ -42,19 +42,19 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
-    <h2>Speaking</h2>
-    <h3>Current Sessions</h3>
+  <h1>Speaking</h1>
+  <div v-if="mySpeakingSessions.length">
+    <h2>Current Sessions</h2>
     <ul>
       <li v-for="session in mySpeakingSessions" :key="session.id">
-        <h4>{{ session.title }}</h4>
-        <p>{{ session.description }}</p>
+        <h3 class="section-title">{{ session.title }}</h3>
+        <p class="session-description">{{ session.description }}</p>
       </li>
       <a :href="`https://sessionize.com/MariamReba/`" target="_blank" rel="noopener noreferrer">
-        Contact on Sessionize to speak at a future event.
+        Read more on sessionize
       </a>
     </ul>
-    <h3>Past Events</h3>
+    <h2>Past Events</h2>
     <ul>
       <li v-for="event in mySpeakingEvents" :key="event.id">
         <a :href="event.website" target="_blank" rel="noopener noreferrer">
@@ -66,6 +66,7 @@ onMounted(async () => {
 
     </ul>
   </div>
+  <div class="loading" v-else>Loading</div>
 </template>
 
 <style scoped>
@@ -83,7 +84,53 @@ a::after {
   text-decoration: none;
   content: ' 🔗';
 }
+
 ul {
   list-style: none;
+}
+
+.session-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  align-items: center;
+}
+
+@keyframes loadingDots {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.loading::after {
+  content: ' ';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 5px;
+  border-radius: 50%;
+  background: var(--mp-blue);
+  animation: loadingDots 1s infinite;
+  box-shadow: 12px 0 0 var(--mp-blue), 24px 0 0 var(--mp-blue);
+  animation-delay: 0s, 0.5s, 0.9s;
 }
 </style>

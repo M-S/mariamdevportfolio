@@ -1,10 +1,21 @@
 <script setup lang="ts">
-import ProfilePicWindow from '@/components/ProfilePicWindow.vue';
-import AboutMeWindow from '@/components/AboutMeWindow.vue';
-import TechBlogsVue from '@/components/TechBlogs.vue';
-import ContactMeWindow from '@/components/ContactMeWindow.vue';
-import CertificationsWindow from '@/components/CertificationsWindow.vue';
-import StickyNote from '@/components/BaseStickyNote.vue';
+import ProfilePicWindow from '@/components/ProfilePicWindow.vue'
+import AboutMeWindow from '@/components/AboutMeWindow.vue'
+import TechBlogsVue from '@/components/TechBlogs.vue'
+import ContactMeWindow from '@/components/ContactMeWindow.vue'
+import CertificationsWindow from '@/components/CertificationsWindow.vue'
+import StickyNote from '@/components/BaseStickyNote.vue'
+import { onMounted } from 'vue';
+import { useTechBlogsStore } from '@/stores/techBlogs'
+const { fetchBlogs } = useTechBlogsStore()
+
+onMounted(async () => {
+  try {
+    await fetchBlogs()
+  } catch (error: Error) {
+    console.error(error.message)
+  }
+})
 </script>
 <template>
   <div class="home">
@@ -17,13 +28,15 @@ import StickyNote from '@/components/BaseStickyNote.vue';
       <StickyNote class="badge-container">
         <h2>My Badges</h2>
         <h3>TryHackMe</h3>
-        <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4444453"
-          style='border:none;'></iframe>
+        <iframe
+          src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4444453"
+          style="border: none"
+        ></iframe>
       </StickyNote>
     </div>
     <div id="contact-section" class="row-3">
       <ContactMeWindow />
-      <img class="social-media" src="/social-media.png" alt="social media icons" width="200px">
+      <img class="social-media" src="/social-media.png" alt="social media icons" width="200px" />
     </div>
     <div id="blog-section" class="row-2">
       <TechBlogsVue />
@@ -31,11 +44,19 @@ import StickyNote from '@/components/BaseStickyNote.vue';
   </div>
   <div class="credits">
     Credits:
-    <a href="https://www.flaticon.com/free-stickers/coding" title="coding stickers">Coding stickers created by Stickers - Flaticon</a>|
-    <a href="https://www.flaticon.com/free-stickers/certificate" title="certificate stickers">Certificate stickers
-      created by Stickers - Flaticon</a> |
-    <a href="https://www.flaticon.com/free-icons/menu" title="menu icons">Menu icons created by Febrian Hidayat - Flaticon</a>|
-    <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by ariefstudio - Flaticon</a>
+    <a href="https://www.flaticon.com/free-stickers/coding" title="coding stickers"
+      >Coding stickers created by Stickers - Flaticon</a
+    >|
+    <a href="https://www.flaticon.com/free-stickers/certificate" title="certificate stickers"
+      >Certificate stickers created by Stickers - Flaticon</a
+    >
+    |
+    <a href="https://www.flaticon.com/free-icons/menu" title="menu icons"
+      >Menu icons created by Febrian Hidayat - Flaticon</a
+    >|
+    <a href="https://www.flaticon.com/free-icons/close" title="close icons"
+      >Close icons created by ariefstudio - Flaticon</a
+    >
   </div>
 </template>
 
@@ -59,7 +80,7 @@ import StickyNote from '@/components/BaseStickyNote.vue';
 
   a::after {
     text-decoration: none;
-    content: " 🔗";
+    content: ' 🔗';
   }
 }
 
@@ -73,7 +94,8 @@ import StickyNote from '@/components/BaseStickyNote.vue';
 }
 
 .badge-container {
-  h2, h3 {
+  h2,
+  h3 {
     color: var(--mp-black);
   }
 }
@@ -86,7 +108,7 @@ import StickyNote from '@/components/BaseStickyNote.vue';
     background-position: bottom left;
     background-position-x: 125px;
     grid-template-columns: 2fr 3fr;
-    height: fit-content
+    height: fit-content;
   }
 
   .row-2 {
@@ -107,5 +129,4 @@ import StickyNote from '@/components/BaseStickyNote.vue';
     color: var(--mp-blue);
   }
 }
-
 </style>

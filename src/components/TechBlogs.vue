@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { onMounted, ref, computed, type ComputedRef } from 'vue'
-import { fetchArticles } from '@/services/devTo.service'
+import { ref, computed } from 'vue'
 import BaseWindowFrame from '@/components/BaseWindowFrame.vue'
-import type { DevToArticleMeta } from '@/types/dev.to'
 import BaseImageFrame from '@/components/BaseImageFrame.vue'
+import { useTechBlogsStore } from '@/stores/techBlogs'
+const { blogs } = useTechBlogsStore();
 
-const feedItems = ref<DevToArticleMeta[] | []>([])
+const feedItems = computed(() => blogs);
 const itemSelected = ref(0)
 const prevPossible = computed(() => itemSelected.value > 0)
 const nextPossible = computed(() => itemSelected.value < feedItems.value.length - 1)
@@ -20,15 +20,6 @@ const showItem = (action = 'prev') => {
     }
   }
 }
-
-onMounted(async () => {
-  try {
-    feedItems.value = await fetchArticles()
-    console.log(feedItems.value)
-  } catch (error) {
-    console.error(error)
-  }
-})
 </script>
 <template>
   <div class="blog-section">

@@ -22,7 +22,7 @@ const dummyUrl = "/writing.png";
 <template>
     <div class="image-frame">
         <img v-if="imageSrc" class="image" :src="imageSrc" :alt="altText" :width="width" :height="height" />
-        <img v-else :src="dummyUrl" :alt="altText" width="200px" height="200px" />
+        <img v-else :src="dummyUrl" :alt="altText" width="auto" :height="height" />
     </div>
 </template>
 <style scoped>
