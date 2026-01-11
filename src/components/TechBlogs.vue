@@ -2,10 +2,11 @@
 import { ref, computed } from 'vue'
 import BaseWindowFrame from '@/components/BaseWindowFrame.vue'
 import BaseImageFrame from '@/components/BaseImageFrame.vue'
+import { onMounted } from 'vue'
 import { useTechBlogsStore } from '@/stores/techBlogs'
-const { blogs } = useTechBlogsStore();
+const { fetchBlogs, blogs } = useTechBlogsStore()
 
-const feedItems = computed(() => blogs);
+const feedItems = ref(blogs)
 const itemSelected = ref(0)
 const prevPossible = computed(() => itemSelected.value > 0)
 const nextPossible = computed(() => itemSelected.value < feedItems.value.length - 1)
@@ -20,30 +21,43 @@ const showItem = (action = 'prev') => {
     }
   }
 }
+onMounted(async () => {
+  try {
+    if (!blogs.length) {
+      feedItems.value = await fetchBlogs()
+    }
+  } catch (error: any) {
+    console.error(error)
+  }
+})
 </script>
 <template>
   <div class="blog-section">
-    <base-window-frame title="Mariam's Blogs ✍🏼" color="green" size="medium" height="auto">
+    <base-window-frame title="Mariam's Blogs ✍🏼" color="green" size="medium" height="675px">
       <div class="blog-content">
-        <BaseImageFrame :imageSrc="feedItems?.[itemSelected]?.cover_image" width="400px" height="200px"
-          :altText="feedItems?.[itemSelected]?.title" />
+        <BaseImageFrame
+          :imageSrc="feedItems?.[itemSelected]?.cover_image"
+          width="400px"
+          height="200px"
+          :altText="feedItems?.[itemSelected]?.title"
+        />
         <div style="padding: 20px">
-          <a :href="feedItems?.[itemSelected]?.url" target="_blank">{{
+          <a class="blog-title" :href="feedItems?.[itemSelected]?.url" target="_blank">{{
             feedItems?.[itemSelected]?.title
-            }}</a>
+          }}</a>
           <p>{{ feedItems?.[itemSelected]?.description }}</p>
         </div>
         <div class="blog-nav">
           <button :disabled="!prevPossible" @click="showItem()">
-            <svg class="icon">
+            <svg v-if="prevPossible" class="icon">
               <use xlink:href="../assets/sprites/solid.svg#chevron-left"></use>
             </svg>
-            Previous
+            <span>{{ prevPossible ? 'Prev' : 'Start' }}</span>
           </button>
           <div class="blog-count">{{ itemSelected + 1 }} / {{ feedItems.length }}</div>
           <button :disabled="!nextPossible" @click="showItem('next')">
-            Next
-            <svg class="icon">
+            <span>{{ nextPossible ? 'Next' : 'End' }}</span>
+            <svg v-if="nextPossible" class="icon">
               <use xlink:href="../assets/sprites/solid.svg#chevron-right"></use>
             </svg>
           </button>
@@ -73,6 +87,14 @@ button {
   margin: 20px;
   overflow: hidden;
   text-align: center;
+  height: 93%;
+  .blog-title {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
 }
 
 .blog-count {

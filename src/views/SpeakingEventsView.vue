@@ -85,6 +85,9 @@ onMounted(async () => {
   img {
     border: 1px solid var(--color-border);
     box-shadow: 0 0 10px var(--color-border);
+    @media(max-width: 768px) {
+      width: 80vw;
+    }
   }
 }
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import BurgerMenuDropDown from '@/components/BurgerMenuDropDown.vue';
-import { ref } from 'vue';
+import { RouterLink, RouterView } from 'vue-router'
+import BurgerMenuDropDown from '@/components/BurgerMenuDropDown.vue'
+import { ref } from 'vue'
 const isBurgerMenuOpen = ref(false);
 </script>
 
@@ -9,7 +9,12 @@ const isBurgerMenuOpen = ref(false);
   <header>
     <nav class="navbar">
       <div class="burger-menu" @click="isBurgerMenuOpen = !isBurgerMenuOpen">
-        <img v-if="!isBurgerMenuOpen" src="./assets/icons/burger-bar.png" alt="menu" height="20px" />
+        <img
+          v-if="!isBurgerMenuOpen"
+          src="./assets/icons/burger-bar.png"
+          alt="menu"
+          height="20px"
+        />
         <img v-else src="./assets/icons/close.png" alt="close" height="16px" />
       </div>
       <div class="home-button">

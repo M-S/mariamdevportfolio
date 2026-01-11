@@ -140,6 +140,7 @@ if (!height.value) {
     margin: 40px 0;
     width: v-bind('width');
     height: v-bind('height');
+    min-height: v-bind('height');
   }
 }
 
