@@ -12,8 +12,8 @@ const { fetchBlogs } = useTechBlogsStore()
 onMounted(async () => {
   try {
     await fetchBlogs()
-  } catch (error: Error) {
-    console.error(error.message)
+  } catch (error: any) {
+    console.error(error)
   }
 })
 </script>

@@ -11,7 +11,7 @@ onMounted(async () => {
     if (!blogs.length) {
       feedItems.value = await fetchBlogs()
     }
-  } catch (error: Error) {
+  } catch (error: any) {
     console.error(error.message)
   }
 })
