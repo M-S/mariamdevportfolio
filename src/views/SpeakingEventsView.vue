@@ -44,7 +44,7 @@ onMounted(async () => {
 <template>
   <div class="speaking-events-wrapper" v-if="mySpeakingSessions.length">
     <h1>Speaking</h1>
-    <img src="../assets/images/speaking.png" alt="speaking icon" width="400px" />
+    <img src="/speaking.png" alt="speaking icon" width="400px" />
     <h2>Current Sessions</h2>
     <ul>
       <li v-for="session in mySpeakingSessions" :key="session.id">
