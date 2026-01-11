@@ -42,8 +42,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h1>Speaking</h1>
-  <div v-if="mySpeakingSessions.length">
+  <div class="speaking-events-wrapper" v-if="mySpeakingSessions.length">
+    <h1>Speaking</h1>
+    <img src="../assets/images/speaking.png" alt="speaking icon" width="400px" />
     <h2>Current Sessions</h2>
     <ul>
       <li v-for="session in mySpeakingSessions" :key="session.id">
@@ -54,22 +55,58 @@ onMounted(async () => {
         Read more on sessionize
       </a>
     </ul>
-    <h2>Past Events</h2>
-    <ul>
-      <li v-for="event in mySpeakingEvents" :key="event.id">
-        <a :href="event.website" target="_blank" rel="noopener noreferrer">
-          {{ event.name }}
-        </a>
-        <p>{{ event.location }}</p>
-        <p>{{ getEventDate(event) }}</p>
-      </li>
-
-    </ul>
+    <h2>Past Speaking Events</h2>
+    <table class="past-events-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Location</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="event in mySpeakingEvents" :key="event.id">
+          <td>
+            <a :href="event.website" target="_blank" rel="noopener noreferrer">{{ event.name }}</a>
+          </td>
+          <td>{{ event.location ? event.location : 'Online' }}</td>
+          <td>{{ getEventDate(event) }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="loading" v-else>Loading</div>
+  <div class="loading" v-else></div>
 </template>
 
 <style scoped>
+.speaking-events-wrapper {
+  text-align: center;
+
+  img {
+    border: 1px solid var(--color-border);
+    box-shadow: 0 0 10px var(--color-border);
+  }
+}
+
+.past-events-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: left;
+  border: 1px solid var(--color-border);
+
+  tr,
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid var(--color-border);
+  }
+
+  th {
+    font-weight: bold;
+  }
+}
+
 a {
   color: var(--mp-blue);
   font-weight: bold;

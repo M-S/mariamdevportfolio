@@ -25,16 +25,12 @@ const showItem = (action = 'prev') => {
   <div class="blog-section">
     <base-window-frame title="Mariam's Blogs ✍🏼" color="green" size="medium" height="auto">
       <div class="blog-content">
-        <BaseImageFrame
-          :imageSrc="feedItems?.[itemSelected]?.cover_image"
-          width="400px"
-          height="200px"
-          :altText="feedItems?.[itemSelected]?.title"
-        />
+        <BaseImageFrame :imageSrc="feedItems?.[itemSelected]?.cover_image" width="400px" height="200px"
+          :altText="feedItems?.[itemSelected]?.title" />
         <div style="padding: 20px">
           <a :href="feedItems?.[itemSelected]?.url" target="_blank">{{
             feedItems?.[itemSelected]?.title
-          }}</a>
+            }}</a>
           <p>{{ feedItems?.[itemSelected]?.description }}</p>
         </div>
         <div class="blog-nav">
@@ -76,6 +72,7 @@ button {
   border: 2px solid var(--color-text);
   margin: 20px;
   overflow: hidden;
+  text-align: center;
 }
 
 .blog-count {

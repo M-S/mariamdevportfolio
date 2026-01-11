@@ -6,6 +6,10 @@ const { blogs, fetchBlogs } = useTechBlogsStore()
 
 const feedItems = ref(blogs);
 
+const onItemClick = (url: string) => {
+  window.open(url, '_blank')
+};
+
 onMounted(async () => {
   try {
     if (!blogs.length) {
@@ -20,21 +24,13 @@ onMounted(async () => {
 <template>
   <h1>Tech Blogs</h1>
   <div v-if="feedItems.length" class="feeds-container">
-    <div class="feed-item" v-for="feedItem in feedItems" :key="feedItem.id">
-      <base-image-frame
-        :image-src="feedItem.cover_image"
-        :alt-text="feedItem.title"
-        width="250px"
-        height="150px"
-      />
+    <div class="feed-item" v-for="feedItem in feedItems" :key="feedItem.id" @click="onItemClick(feedItem.url)">
+      <base-image-frame :image-src="feedItem.cover_image" :alt-text="feedItem.title" width="250px" height="150px" />
       <h3 class="feed-item-title">{{ feedItem.title }}</h3>
       <small>{{ feedItem.readable_publish_date }}</small>
-      <small class="feed-item-tags"
-        ><span v-for="(tag, i) in feedItem.tag_list" :key="i">
+      <small class="feed-item-tags"><span v-for="(tag, i) in feedItem.tag_list" :key="i">
           {{ tag }} {{ i === feedItem.tag_list.length - 1 ? `` : ` | ` }}
-        </span></small
-      >
-      <a :href="feedItem.url" target="_blank">Read</a>
+        </span></small>
     </div>
   </div>
   <hr />
@@ -51,9 +47,15 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid var(--color-border);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px var(--color-border);
+  border-radius: 3px;
+  transition: box-shadow 0.3s ease;
   padding: 10px;
+
+  :hover& {
+    box-shadow: 0 0 10px var(--mp-blue);
+    cursor: pointer;
+  }
 }
 
 .feed-item-title {
