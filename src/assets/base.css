@@ -1,35 +1,45 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/* Modern color palette for developer portfolio */
 :root {
+  /* Neutrals */
   --mp-white: #ffffff;
-  --mp-white-soft: #f8f8f8;
-  --mp-white-mute: #f2f2f2;
+  --mp-white-soft: #f9fafb;
+  --mp-white-mute: #f3f4f6;
+  
+  --mp-black: #0f1117;
+  --mp-black-soft: #161b22;
+  --mp-black-mute: #21262d;
 
-  --mp-black: #181818;
-  --mp-black-soft: #222222;
-  --mp-black-mute: #282828;
+  /* Brand colors - modern, professional developer palette */
+  --mp-indigo: #4f46e5;
+  --mp-blue: #0ea5e9;
+  --mp-cyan: #06b6d4;
+  --mp-green: #10b981;
+  --mp-purple: #7c3aed;
+  --mp-pink: #ec4899;
+  --mp-orange: #f97316;
+  --mp-red: #ef4444;
+  --mp-yellow: #eab308;
 
-  --mp-indigo: #2c3e50;
-  --mp-pink: #ff80b4;
-  --mp-orange: #fa643f;
-  --mp-green: #2ecc71;
-  --mp-blue: #3498db;
-  --mp-red: #e74c3c;
-  --mp-yellow: #f1c40f;
-  --mp-purple: #9b59b6;
-  --mp-purple-light: #e0d2ef;
-  --mp-cyan: #1abc9c;
-  --mp-pink-light: #ffb3d2;
-  --mp-green-light: #c1ff72;
+  /* Light variants for backgrounds */
+  --mp-indigo-light: #e0e7ff;
+  --mp-blue-light: #e0f2fe;
+  --mp-cyan-light: #cffafe;
+  --mp-green-light: #dcfce7;
+  --mp-purple-light: #f3e8ff;
+  --mp-pink-light: #fce7f3;
+  --mp-orange-light: #fed7aa;
 
-  --mp-divider-light-1: rgba(0, 0, 0, 0.65);
-  --mp-divider-light-2: rgba(0, 0, 0, 0.48);
-  --mp-divider-dark-1: rgba(84, 84, 84, 0.35);
-  --mp-divider-dark-2: rgba(84, 84, 84, 0.18);
+  /* Borders and dividers */
+  --mp-divider-light-1: rgba(0, 0, 0, 0.12);
+  --mp-divider-light-2: rgba(0, 0, 0, 0.06);
+  --mp-divider-dark-1: rgba(255, 255, 255, 0.12);
+  --mp-divider-dark-2: rgba(255, 255, 255, 0.06);
 
-  --mp-text-light-1: var(--mp-indigo);
-  --mp-text-light-2: rgba(60, 60, 60, 0.66);
-  --mp-text-dark-1: var(--mp-white);
-  --mp-text-dark-2: rgba(235, 235, 235, 0.64);
+  /* Text colors */
+  --mp-text-light-1: #1f2937;
+  --mp-text-light-2: #6b7280;
+  --mp-text-dark-1: #f9fafb;
+  --mp-text-dark-2: #d1d5db;
 }
 
 /* semantic color variables for this project */
@@ -42,9 +52,34 @@
   --color-border-hover: var(--mp-divider-light-1);
 
   --color-heading: var(--mp-text-light-1);
-  --color-text: var(--mp-text-light-1);
+  --color-text: var(--mp-text-light-2);
+  --color-text-secondary: var(--mp-text-light-2);
 
-  --section-gap: 160px;
+  --color-primary: var(--mp-indigo);
+  --color-primary-hover: #4338ca;
+  --color-secondary: var(--mp-cyan);
+
+  --section-gap: 80px;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,9 +92,17 @@
     --color-border-hover: var(--mp-divider-dark-1);
 
     --color-heading: var(--mp-text-dark-1);
-    --color-text: var(--mp-text-dark-1);
+    --color-text: var(--mp-text-dark-2);
+    --color-text-secondary: var(--mp-text-dark-2);
 
-    --section-gap: 160px;
+    --color-primary: var(--mp-indigo);
+    --color-primary-hover: #6366f1;
+
+    --section-gap: 80px;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -68,35 +111,27 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-weight: normal;
+  padding: 0;
+  font-weight: 400;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
+  transition: color var(--transition-base), background-color var(--transition-base);
   line-height: 1.6;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 h1,
 h2,
 h3,
@@ -104,35 +139,86 @@ h4,
 h5,
 h6 {
   color: var(--color-heading);
-  margin: 1.5em 0 1em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 p {
-  margin: 1.5em 0;
-  font-size: 1.125em;
-  line-height: 1.6;
-  padding: 0 1.5em;
+  margin: 1rem 0;
+  line-height: 1.7;
   color: var(--color-text);
 }
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
 button {
-  font-size: 1.125em;
-  padding: 0.5em 1em;
-  margin: 1.5em;
-  border: 2px solid var(--color-text);
+  font-size: 1rem;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 1px solid var(--color-border);
   background: var(--color-background);
   color: var(--color-text);
   cursor: pointer;
-  transition: background-color 0.5s;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  font-weight: 500;
   white-space: nowrap;
 }
-button:hover {
+
+button:hover:not(:disabled) {
   background: var(--color-background-mute);
-  transform: scale(1.05);
+  border-color: var(--color-border-hover);
+  transform: translateY(-1px);
 }
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
 button:disabled {
-  background: var(--color-background-soft);
-  color: var(--color-text);
+  background: var(--color-background-mute);
+  color: var(--mp-text-light-2);
   cursor: not-allowed;
-  transform: none;
+  opacity: 0.5;
 }

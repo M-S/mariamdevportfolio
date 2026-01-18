@@ -1,76 +1,76 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import BaseWindowFrame from '@/components/BaseWindowFrame.vue';
-const zoom = ref(false);
-const zoomOut = ref(false);
-const onZoom = () => {
-    zoom.value = true;
-    setTimeout(() => {
-        zoom.value = false;
-    }, 2000);
-};
-const onZoomOut = () => {
-    zoomOut.value = true;
-    setTimeout(() => {
-        zoomOut.value = false;
-    }, 2000);
-};
+import { ref } from 'vue'
+import BaseWindowFrame from '@/components/BaseWindowFrame.vue'
+
+const isImageHovered = ref(false)
 </script>
 <template>
-    <base-window-frame class="profile-window" draggable="true" title="_mariam.png" size="small" bg-color="light-pink" height="250px">
-        <div class="contents">
-            <img src="/profile.png" :class="{ 'zoom': zoom, 'zoom-out': zoomOut }" alt="profile" width="200px" height="200px" />
-            <div class="magnifying-icons">
-                <svg class="icon" @click="onZoom">
-                    <use xlink:href="../assets/sprites/solid.svg#magnifying-glass-plus"></use>
-                </svg>
-                <svg class="icon" @click="onZoomOut">
-                    <use xlink:href="../assets/sprites/solid.svg#magnifying-glass-minus"></use>
-                </svg>
-            </div>
-        </div>
-    </base-window-frame>
+  <base-window-frame
+    title="Profile"
+    variant="elevated"
+    color="primary"
+    padding="lg"
+    class="profile-card"
+  >
+    <div class="profile-content">
+      <div class="profile-image-container" @mouseenter="isImageHovered = true" @mouseleave="isImageHovered = false">
+        <img src="/profile.png" alt="Mariam's profile picture" class="profile-image" :class="{ hovered: isImageHovered }" />
+      </div>
+      <p class="profile-text">Software Developer & Tech Speaker</p>
+    </div>
+  </base-window-frame>
 </template>
 <style scoped>
-.profile-window {
-    justify-self: center;
-}
-.contents {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
-    justify-items: center;
+.profile-card {
+  max-width: 100%;
 }
 
-.magnifying-icons {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    justify-items: center;
-    align-items: center;
-    gap: 30px;
-    width: 50px;
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: center;
 }
 
-.magnifying-icons .icon {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+.profile-image-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.zoom {
-    transition: transform 2s;
-    transform: scale(2);
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
 }
 
-.zoom-out {
-    transition: transform 2s;
-    transform: scale(0.5);
+.profile-image.hovered {
+  transform: scale(1.05);
 }
 
-@media(max-width: 700px) {
-    /* .magnifying-icons {
-        display: none;
-    } */
+.profile-text {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
 
-}</style>
+@media (max-width: 640px) {
+  .profile-image-container {
+    width: 160px;
+    height: 160px;
+  }
+
+  .profile-text {
+    font-size: 1rem;
+  }
+}
+</style>

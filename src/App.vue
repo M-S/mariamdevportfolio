@@ -9,12 +9,7 @@ const isBurgerMenuOpen = ref(false);
   <header>
     <nav class="navbar">
       <div class="burger-menu" @click="isBurgerMenuOpen = !isBurgerMenuOpen">
-        <img
-          v-if="!isBurgerMenuOpen"
-          src="./assets/icons/burger-bar.png"
-          alt="menu"
-          height="20px"
-        />
+        <img v-if="!isBurgerMenuOpen" src="./assets/icons/burger-bar.png" alt="menu" height="20px" />
         <img v-else src="./assets/icons/close.png" alt="close" height="16px" />
       </div>
       <div class="home-button">
@@ -33,40 +28,70 @@ const isBurgerMenuOpen = ref(false);
 </template>
 
 <style scoped>
+header {
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 .navbar {
-  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  border: 2px solid var(--color-text);
-  background-color: var(--mp-pink);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.home-button {
+.home-button a {
   display: flex;
   align-items: center;
-  color: var(--mp-black);
-  cursor: pointer;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
 
-  a {
-    text-decoration: none;
-    font-weight: bold;
-    padding: 4px;
-    color: var(--mp-black);
-    :hover {
-      background-color: var(--mp-purple-light);
-    }
-  }
+.home-button a:hover {
+  background: var(--color-background-mute);
+  color: var(--color-primary);
 }
 
 .burger-menu {
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
 
-  :hover {
-    opacity: 0.7;
+.burger-menu:hover {
+  background: var(--color-background-mute);
+}
+
+.burger-menu img {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: var(--spacing-md) var(--spacing-lg);
   }
+}
+
+:deep(.icon) {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
 </style>
