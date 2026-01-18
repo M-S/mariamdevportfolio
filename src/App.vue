@@ -1,16 +1,22 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
 import BurgerMenuDropDown from '@/components/BurgerMenuDropDown.vue'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 const isBurgerMenuOpen = ref(false);
+const router = useRouter();
+
+// Close burger menu when route changes
+watch(() => router.currentRoute.value, () => {
+  isBurgerMenuOpen.value = false
+})
 </script>
 
 <template>
   <header>
     <nav class="navbar">
       <div class="burger-menu" @click="isBurgerMenuOpen = !isBurgerMenuOpen">
-        <img v-if="!isBurgerMenuOpen" src="./assets/icons/burger-bar.png" alt="menu" height="20px" />
-        <img v-else src="./assets/icons/close.png" alt="close" height="16px" />
+        <img v-if="!isBurgerMenuOpen" src="./assets/icons/burger-bar.png" alt="menu" class="burger-icon" />
+        <img v-else src="./assets/icons/close.png" alt="close" class="close-icon" />
       </div>
       <div class="home-button">
         <RouterLink to="/">
@@ -21,7 +27,7 @@ const isBurgerMenuOpen = ref(false);
         </RouterLink>
       </div>
     </nav>
-    <burger-menu-drop-down :is-open="isBurgerMenuOpen" />
+    <burger-menu-drop-down :is-open="isBurgerMenuOpen" @close="isBurgerMenuOpen = false" />
   </header>
 
   <RouterView />
@@ -77,9 +83,16 @@ header {
   background: var(--color-background-mute);
 }
 
-.burger-menu img {
+.burger-icon {
   width: 24px;
   height: 24px;
+  filter: invert(var(--icon-invert, 0));
+}
+
+.close-icon {
+  width: 18px;
+  height: 18px;
+  filter: invert(var(--icon-invert, 0));
 }
 
 @media (max-width: 768px) {

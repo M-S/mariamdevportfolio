@@ -21,6 +21,9 @@ interface Props {
 }
 
 defineProps<Props>()
+defineEmits<{
+  close: []
+}>()
 </script>
 
 <template>
@@ -28,7 +31,7 @@ defineProps<Props>()
     <nav v-if="isOpen" class="burger-menu-wrapper">
       <ul class="menu-list">
         <li v-for="menuItem in menuItems" :key="menuItem.link">
-          <router-link :to="menuItem.link" class="menu-link">
+          <router-link :to="menuItem.link" class="menu-link" @click="$emit('close')">
             {{ menuItem.label }}
           </router-link>
         </li>
