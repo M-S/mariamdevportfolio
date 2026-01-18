@@ -36,6 +36,9 @@ onMounted(async () => {
 </script>
 <template>
   <div class="blog-section">
+    <div class="writing-image-container">
+      <img src="/writing.png" alt="Writing and blogging" class="writing-image" />
+    </div>
     <base-window-frame
       title="Latest Articles"
       subtitle="Insights from Dev.to"
@@ -94,6 +97,21 @@ onMounted(async () => {
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.writing-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.writing-image {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
 }
 
 .blog-content {

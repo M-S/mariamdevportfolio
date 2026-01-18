@@ -29,7 +29,7 @@ const yearsOfExperience = computed(() =>
           <h3>Current Role</h3>
           <p>
             I am a Software Engineer at Maersk, based in Copenhagen, Denmark, with over
-            <strong>{{ yearsOfExperience }} years</strong> of experience in the IT industry. Since 2017, I have worked as
+            {{ yearsOfExperience }} years of experience in the IT industry. Since 2017, I have worked as
             a Frontend Web Developer, primarily using frameworks such as Angular and Vue.
           </p>
         </div>
@@ -48,8 +48,8 @@ const yearsOfExperience = computed(() =>
         <div class="content-section">
           <h3>Technical Skills</h3>
           <p>
-            I am skilled in tools such as <strong>Cypress</strong>, <strong>Jest</strong>, and <strong>Vitest</strong>
-            for testing, as well as <strong>GitHub Actions</strong> for CI/CD. I have hands-on experience with modern
+            I am skilled in tools such as Cypress, Jest, and Vitest
+            for testing, as well as GitHub Actions for CI/CD. I have hands-on experience with modern
             frontend frameworks and a strong focus on code quality and best practices.
           </p>
         </div>
@@ -59,7 +59,7 @@ const yearsOfExperience = computed(() =>
           <p>
             I have acted as a Frontend Developer Community Host and Coordinator for company events. I am passionate
             about secure coding practices and am a member of the
-            <strong>Cybersecurity Champions group at Maersk</strong>. I have participated as a speaker at conferences
+            Cybersecurity Champions group at Maersk. I have participated as a speaker at conferences
             and meetups, discussing frontend technologies and security best practices.
           </p>
         </div>

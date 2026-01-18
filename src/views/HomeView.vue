@@ -14,14 +14,6 @@ import StickyNote from '@/components/BaseStickyNote.vue'
     </div>
     <div class="hide-mobile row-3">
       <CertificationsWindow />
-      <StickyNote class="badge-container">
-        <h2>My Badges</h2>
-        <h3>TryHackMe</h3>
-        <iframe
-          src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4444453"
-          style="border: none"
-        ></iframe>
-      </StickyNote>
     </div>
     <div id="contact-section" class="row-3">
       <ContactMeWindow />

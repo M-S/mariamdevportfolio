@@ -52,6 +52,9 @@ onMounted(async () => {
 
 <template>
   <div class="speaking-page">
+    <div class="speaking-image">
+      <img src="/speaking.png" alt="Speaking at conferences" class="image" />
+    </div>
     <div class="page-container">
       <div class="page-header">
         <h1>Speaking & Events</h1>
@@ -141,9 +144,24 @@ onMounted(async () => {
   padding: var(--spacing-2xl) var(--spacing-xl);
 }
 
+.speaking-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.speaking-image .image {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+}
+
 .page-container {
+  padding: var(--spacing-2xl) var(--spacing-xl);
   max-width: 1000px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .page-header {

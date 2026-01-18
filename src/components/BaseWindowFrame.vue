@@ -48,9 +48,11 @@ const getRadiusClass = () => {
 </template>
 <style scoped>
 .card {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   transition: all var(--transition-base);
   background: var(--color-background);
+  position: relative;
+  overflow: hidden;
 }
 
 /* Variant styles */
@@ -60,6 +62,7 @@ const getRadiusClass = () => {
 
 .card-elevated {
   box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
 }
 
 .card-outlined {
@@ -68,27 +71,49 @@ const getRadiusClass = () => {
 
 .card:hover.card-elevated {
   box-shadow: var(--shadow-lg);
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
 }
 
-/* Color variants - accent bars/indicators */
+/* Color variants - accent top bars with glow */
 .card-primary {
-  border-left: 4px solid var(--color-primary);
+  border-top: 3px solid var(--color-primary);
+}
+
+.card-primary:hover.card-elevated {
+  box-shadow: 0 10px 30px -8px rgba(99, 102, 241, 0.25), var(--shadow-lg);
 }
 
 .card-secondary {
-  border-left: 4px solid var(--color-secondary);
+  border-top: 3px solid var(--color-secondary);
+}
+
+.card-secondary:hover.card-elevated {
+  box-shadow: 0 10px 30px -8px rgba(6, 182, 212, 0.25), var(--shadow-lg);
 }
 
 .card-success {
-  border-left: 4px solid var(--mp-green);
+  border-top: 3px solid var(--mp-green);
+}
+
+.card-success:hover.card-elevated {
+  box-shadow: 0 10px 30px -8px rgba(16, 185, 129, 0.25), var(--shadow-lg);
 }
 
 .card-warning {
-  border-left: 4px solid var(--mp-yellow);
+  border-top: 3px solid var(--mp-yellow);
+}
+
+.card-warning:hover.card-elevated {
+  box-shadow: 0 10px 30px -8px rgba(234, 179, 8, 0.25), var(--shadow-lg);
 }
 
 .card-danger {
-  border-left: 4px solid var(--mp-red);
+  border-top: 3px solid var(--mp-red);
+}
+
+.card-danger:hover.card-elevated {
+  box-shadow: 0 10px 30px -8px rgba(239, 68, 68, 0.25), var(--shadow-lg);
 }
 
 /* Padding utilities */
@@ -114,7 +139,7 @@ const getRadiusClass = () => {
 }
 
 .rounded-lg {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
 }
 
 .card-header {
@@ -128,15 +153,17 @@ const getRadiusClass = () => {
 
 .card-title {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--color-heading);
+  letter-spacing: -0.02em;
 }
 
 .card-subtitle {
   margin: var(--spacing-sm) 0 0;
   font-size: 0.875rem;
   color: var(--color-text-secondary);
+  font-weight: 500;
 }
 
 .card-content {
