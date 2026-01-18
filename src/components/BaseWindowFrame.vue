@@ -1,204 +1,196 @@
 <script setup lang="ts">
-import { ref, defineProps, withDefaults } from 'vue'
+import { defineProps, withDefaults } from 'vue'
+
 interface Props {
   title?: string
-  size?: string
-  color?: string
-  bgColor?: string
-  width?: string
-  height?: string
+  subtitle?: string
+  variant?: 'default' | 'elevated' | 'outlined'
+  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+  padding?: 'sm' | 'md' | 'lg'
+  rounded?: 'sm' | 'md' | 'lg'
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: 'Title',
-  size: 'medium',
-  color: 'orange',
-  bgColor: 'white'
+  title: '',
+  subtitle: '',
+  variant: 'elevated',
+  color: 'primary',
+  padding: 'md',
+  rounded: 'lg'
 })
-const shake = ref(false)
-const close = () => {
-  shake.value = true
-  setTimeout(() => {
-    shake.value = false
-  }, 500)
+
+const getPaddingClass = () => {
+  const map = { sm: 'p-3', md: 'p-6', lg: 'p-8' }
+  return map[props.padding]
 }
-const width = ref(props.width)
-const height = ref(props.height)
-if (!width.value) {
-  if (props.size === 'small') {
-    width.value = '300px'
-  } else if (props.size === 'medium') {
-    width.value = '600px'
-  } else if (props.size === 'large') {
-    width.value = '800px'
-  } else {
-    width.value = '600px'
-  }
-}
-if (!height.value) {
-  if (props.size === 'small') {
-    height.value = '300px'
-  } else if (props.size === 'medium') {
-    height.value = '500px'
-  } else if (props.size === 'large') {
-    height.value = '800px'
-  } else {
-    height.value = 'fit-content'
-  }
+
+const getRadiusClass = () => {
+  const map = { sm: 'rounded-sm', md: 'rounded-md', lg: 'rounded-lg' }
+  return map[props.rounded]
 }
 </script>
 <template>
-  <div class="window-frame" :class="[bgColor]">
-    <div class="title-bar" :class="color">
-      <span class="title">{{ props.title }}</span>
-      <span class="icons">
-        <svg class="icon">
-          <use xlink:href="../assets/sprites/regular.svg#window-minimize"></use>
-        </svg>
-        <svg class="icon">
-          <use xlink:href="../assets/sprites/regular.svg#window-maximize"></use>
-        </svg>
-        <svg class="icon" :class="{ shake: shake }" @click="close">
-          <use xlink:href="../assets/sprites/regular.svg#rectangle-xmark"></use>
-        </svg>
-      </span>
+  <div class="card" :class="[`card-${variant}`, `card-${color}`, getRadiusClass(), getPaddingClass()]">
+    <div v-if="title || subtitle" class="card-header">
+      <div>
+        <h3 v-if="title" class="card-title">{{ title }}</h3>
+        <p v-if="subtitle" class="card-subtitle">{{ subtitle }}</p>
+      </div>
+      <slot name="header-action" />
     </div>
-    <div class="content">
+    <div class="card-content">
       <slot />
+    </div>
+    <div v-if="$slots.footer" class="card-footer">
+      <slot name="footer" />
     </div>
   </div>
 </template>
 <style scoped>
-.window-frame {
-  border: 2px solid var(--color-text);
-  background-color: #fff;
-  margin: 20px 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 80vw;
-  height: auto;
+.card {
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+  background: var(--color-background);
+  position: relative;
   overflow: hidden;
-  border-radius: 5px;
 }
 
-.window-frame.white {
-  background-color: var(--color-background);
+/* Variant styles */
+.card-default {
+  border: 1px solid var(--color-border);
 }
 
-.window-frame.black {
-  background-color: #000;
+.card-elevated {
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
 }
 
-.window-frame.pink {
-  background-color: var(--mp-pink);
+.card-outlined {
+  border: 2px solid var(--color-border);
 }
 
-.window-frame.light-pink {
-  background-color: var(--mp-pink-light);
+.card:hover.card-elevated {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
 }
 
-.window-frame.light-green {
-  background-color: var(--mp-green-light);
+/* Color variants - accent top bars with glow */
+.card-primary {
+  border-top: 3px solid var(--color-primary);
 }
 
-.title-bar {
+.card-primary:hover.card-elevated {
+  box-shadow: 0 10px 30px -8px rgba(99, 102, 241, 0.25), var(--shadow-lg);
+}
+
+.card-secondary {
+  border-top: 3px solid var(--color-secondary);
+}
+
+.card-secondary:hover.card-elevated {
+  box-shadow: 0 10px 30px -8px rgba(6, 182, 212, 0.25), var(--shadow-lg);
+}
+
+.card-success {
+  border-top: 3px solid var(--mp-green);
+}
+
+.card-success:hover.card-elevated {
+  box-shadow: 0 10px 30px -8px rgba(16, 185, 129, 0.25), var(--shadow-lg);
+}
+
+.card-warning {
+  border-top: 3px solid var(--mp-yellow);
+}
+
+.card-warning:hover.card-elevated {
+  box-shadow: 0 10px 30px -8px rgba(234, 179, 8, 0.25), var(--shadow-lg);
+}
+
+.card-danger {
+  border-top: 3px solid var(--mp-red);
+}
+
+.card-danger:hover.card-elevated {
+  box-shadow: 0 10px 30px -8px rgba(239, 68, 68, 0.25), var(--shadow-lg);
+}
+
+/* Padding utilities */
+.p-3 {
+  padding: var(--spacing-md);
+}
+
+.p-6 {
+  padding: var(--spacing-xl);
+}
+
+.p-8 {
+  padding: var(--spacing-2xl);
+}
+
+/* Border radius utilities */
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-xl);
+}
+
+.card-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 2px solid var(--color-text);
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.title-bar.pink {
-  background-color: var(--mp-pink);
+.card-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  letter-spacing: -0.02em;
 }
 
-.title-bar.blue {
-  background-color: var(--mp-blue);
+.card-subtitle {
+  margin: var(--spacing-sm) 0 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
 }
 
-.title-bar.green {
-  background-color: var(--mp-green);
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
-.title-bar.orange {
-  background-color: var(--mp-orange);
+.card-footer {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: var(--spacing-md);
 }
 
-.icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 6px;
-}
-
-.content {
-  height: 92%;
-  background: var(--color-background);
-}
-
-@media (min-width: 800px) {
-  .window-frame {
-    margin: 40px 0;
-    width: v-bind('width');
-    height: v-bind('height');
-    min-height: v-bind('height');
-  }
-}
-
-.title {
-  font-weight: bold;
-  max-width: 50%;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-@keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
+@media (max-width: 640px) {
+  .card {
+    border-radius: var(--radius-md);
   }
 
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
+  .p-6 {
+    padding: var(--spacing-lg);
   }
 
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
+  .p-8 {
+    padding: var(--spacing-xl);
   }
-
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
-.shake {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
 }
 </style>

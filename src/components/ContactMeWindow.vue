@@ -1,49 +1,86 @@
 <script setup lang="ts">
-import BaseWindowFrameVue from './BaseWindowFrame.vue';
+import BaseWindowFrame from './BaseWindowFrame.vue'
 </script>
 <template>
-    <BaseWindowFrameVue class="contact-me" color="white" title="📹 Contact Me" height="fit-content" width="fit-content">
-        <div class="social-links">
-            <div>
-                <a href="mailto:gigabit.02shuffle@icloud.com" target="_blank">
-                    <img src="/email.png" alt="email" width="100px" height="100px">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.linkedin.com/in/mariam-reba-alexander-2231a2119/" target="_blank">
-                    <img src="/linkedin.png" alt="linkedin" width="100px" height="100px">
-                </a>
-            </div>
-        </div>
-    </BaseWindowFrameVue>
+  <base-window-frame
+    title="Get in Touch"
+    subtitle="Connect with me"
+    variant="elevated"
+    color="primary"
+    padding="lg"
+  >
+    <div class="contact-links">
+      <a href="mailto:gigabit.02shuffle@icloud.com" class="contact-link" title="Send me an email">
+        <img src="/email.png" alt="Email" class="contact-icon" />
+        <span class="contact-label">Email</span>
+      </a>
+      <a href="https://www.linkedin.com/in/mariam-reba-alexander-2231a2119/" target="_blank" class="contact-link" title="Connect on LinkedIn">
+        <img src="/linkedin.png" alt="LinkedIn" class="contact-icon" />
+        <span class="contact-label">LinkedIn</span>
+      </a>
+    </div>
+  </base-window-frame>
 </template>
 <style scoped>
-.social-links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    gap: 40px;
-    justify-items: center;
-    align-items: center;
-    margin: 30px;
+.contact-links {
+  display: flex;
+  gap: var(--spacing-xl);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-@media (min-width: 1024px) {
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all var(--transition-base);
+  flex: 1;
+  min-width: 120px;
+}
 
-    .social-links img {
-        cursor: pointer;
-        transition: transform 0.5s;
-        padding: 5px;
-    }
+.contact-link:hover {
+  border-color: var(--color-primary);
+  background: var(--color-background-mute);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
 
-    .social-links img:hover {
-        transform: scale(1.2);
-    }
+.contact-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: transform var(--transition-base);
+}
 
-    .social-links img:active,
-    .social-links img:focus,
-    .social-links img:visited {
-        outline: 2px solid var(--mp-blue);
-    }
+.contact-link:hover .contact-icon {
+  transform: scale(1.1);
+}
+
+.contact-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-heading);
+}
+
+@media (max-width: 640px) {
+  .contact-links {
+    gap: var(--spacing-lg);
+  }
+
+  .contact-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .contact-label {
+    font-size: 0.9375rem;
+  }
 }
 </style>

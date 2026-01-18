@@ -1,29 +1,144 @@
 @import './base.css';
 
-h1, h2 {
-    display: flex;
-    justify-content: center;
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+header {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-background);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all var(--transition-base);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
 }
+
+@media (prefers-color-scheme: dark) {
+  header {
+    background: rgba(10, 14, 39, 0.8);
+  }
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  width: 100%;
+}
+
 .icon {
-  width: 15px;
-  height: 15px;
-  fill: var(--color-text);
-  margin: 0 2px;
-  padding: 0;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: fill var(--transition-fast);
+  display: inline-block;
+
   &.no-darkscheme {
     fill: var(--mp-black);
   }
 }
 
-@media (hover: hover) {
-  a:hover {
-    /* background-color: hsla(160, 100%, 37%, 0.2); */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+}
+
+.icon-button:hover {
+  background: var(--color-background-mute);
+  color: var(--color-primary);
+}
+
+/* Typography utilities */
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-muted {
+  color: var(--color-text-secondary);
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .container {
+    padding: var(--spacing-lg);
+  }
+
+  h1 {
+    font-size: 1.875rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }

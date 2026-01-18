@@ -14,14 +14,6 @@ import StickyNote from '@/components/BaseStickyNote.vue'
     </div>
     <div class="hide-mobile row-3">
       <CertificationsWindow />
-      <StickyNote class="badge-container">
-        <h2>My Badges</h2>
-        <h3>TryHackMe</h3>
-        <iframe
-          src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4444453"
-          style="border: none"
-        ></iframe>
-      </StickyNote>
     </div>
     <div id="contact-section" class="row-3">
       <ContactMeWindow />
@@ -51,78 +43,104 @@ import StickyNote from '@/components/BaseStickyNote.vue'
 
 <style scoped>
 .home {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: repeat(3, auto);
-  gap: 20px;
-  justify-items: center;
-
-  a {
-    color: var(--mp-blue);
-    font-weight: bold;
-  }
-
-  a:hover {
-    color: var(--color-bg);
-    cursor: pointer;
-  }
-
-  a::after {
-    text-decoration: none;
-    content: ' 🔗';
-  }
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.row-1,
+.row-1 {
+  display: grid;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
 .row-2,
 .row-3 {
   display: grid;
-  gap: 20px;
-  justify-items: center;
-  vertical-align: middle;
+  gap: var(--spacing-xl);
+  width: 100%;
 }
 
 .badge-container {
-  h2,
-  h3 {
-    color: var(--mp-black);
-  }
+  border-radius: var(--radius-lg);
 }
 
 .hide-mobile {
   display: none;
-  @media (min-width: 768px) {
+}
+
+.social-media {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
     display: block;
+  }
+
+  .row-1 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .row-3 {
+    grid-template-columns: 2fr 1fr;
   }
 }
 
 @media (min-width: 1024px) {
-  .row-1 {
-    background-image: url('/coding.png');
-    background-size: 300px 300px;
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-position-x: 125px;
-    grid-template-columns: 2fr 3fr;
-    height: fit-content;
+  .home {
+    padding: var(--spacing-2xl) var(--spacing-xl);
   }
 
   .row-2 {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, auto);
-  }
-
-  .row-3 {
-    margin: 20px;
-    grid-template-columns: 2fr 1fr;
   }
 }
+
 .credits {
   display: flex;
   justify-content: center;
-  font-size: 8px;
-  a {
-    color: var(--mp-blue);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--spacing-xl);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.credits a {
+  color: var(--color-primary);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.credits a:hover {
+  color: var(--color-primary-hover);
+}
+
+.credits a::after {
+  content: '';
+}
+
+@media (max-width: 640px) {
+  .home {
+    padding: var(--spacing-xl);
+    gap: var(--spacing-xl);
+  }
+
+  .row-1 {
+    grid-template-columns: 1fr;
+  }
+
+  .row-3 {
+    grid-template-columns: 1fr;
   }
 }
 </style>

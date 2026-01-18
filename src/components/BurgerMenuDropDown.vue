@@ -1,64 +1,103 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
+import { RouterLink } from 'vue-router'
+
 const menuItems = [
   {
-    label: "Blogs",
-    link: "/blogs"
+    label: 'Blogs',
+    link: '/blogs'
   },
   {
-    label: "Speaking Events",
-    link: "/speaking-events"
+    label: 'Speaking Events',
+    link: '/speaking-events'
   },
-  // {
-  //   label: "Contact",
-  //   link: "/#contact-section"
-  // },
   {
-    label: "About Me",
-    link: "/about"
+    label: 'About Me',
+    link: '/about'
   }
 ]
+
 interface Props {
-  isOpen: boolean;
+  isOpen: boolean
 }
-const props = defineProps<Props>();
+
+defineProps<Props>()
+defineEmits<{
+  close: []
+}>()
 </script>
 
 <template>
-  <div class="burger-menu-drop-down-wrapper" v-if="props.isOpen">
-    <ul class="drop-down-menu">
-        <router-link  v-for="menuItem in menuItems" :key="menuItem.link" :to="menuItem.link">
-          <li>{{ menuItem.label }}</li></router-link>
-    </ul>
-  </div>
+  <transition name="menu-slide">
+    <nav v-if="isOpen" class="burger-menu-wrapper">
+      <ul class="menu-list">
+        <li v-for="menuItem in menuItems" :key="menuItem.link">
+          <router-link :to="menuItem.link" class="menu-link" @click="$emit('close')">
+            {{ menuItem.label }}
+          </router-link>
+        </li>
+      </ul>
+    </nav>
+  </transition>
 </template>
 
 <style scoped>
-ul.drop-down-menu {
+.burger-menu-wrapper {
   position: absolute;
-  width: fit-content;
-  height: fit-content;
-  margin: 0;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 50;
+  box-shadow: var(--shadow-md);
+}
+
+.menu-list {
+  list-style: none;
   padding: 0;
-  background-color: var(--mp-pink);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 
-  :hover,
-  &:focus,
-  &:active {
-    cursor: pointer;
-    background-color: var(--mp-purple-light);
-  }
+.menu-list li {
+  border-bottom: 1px solid var(--color-border);
+}
 
-  a {
-    text-decoration: none;
-    color: var(--mp-black);
-  }
+.menu-list li:last-child {
+  border-bottom: none;
+}
 
-  li {
-    list-style: none;
-    border: 1px solid var(--color-text);
-    border-top: none;
-    padding: 4px 16px;
-  }
+.menu-link {
+  display: block;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.menu-link:hover {
+  background: var(--color-background-mute);
+  color: var(--color-primary);
+  padding-left: calc(var(--spacing-xl) + 8px);
+}
+
+.menu-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+  background: var(--color-background-mute);
+}
+
+/* Transition animations */
+.menu-slide-enter-active,
+.menu-slide-leave-active {
+  transition: all var(--transition-base);
+}
+
+.menu-slide-enter-from,
+.menu-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
 }
 </style>
