@@ -66,3 +66,26 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
+
+## Sandbox development (Dev Container)
+
+A ready-to-use sandbox for local development is provided via VS Code Dev Containers (works locally with Docker or in GitHub Codespaces).
+
+Prerequisites:
+- Docker Desktop or Docker Engine
+- Visual Studio Code with the "Dev Containers" extension (ms-vscode-remote.remote-containers), or use GitHub Codespaces
+
+How to use locally:
+1. Open this repository folder in VS Code.
+2. When prompted, "Reopen in Container"; or run the command: Dev Containers: Reopen in Container.
+3. The container will build and automatically run `npm ci` as defined in `.devcontainer/devcontainer.json`.
+4. Start the dev server inside the container terminal:
+   - `npm run dev` (Vite serves on port 5173; it is forwarded automatically)
+5. Optional: preview the production build inside the container:
+   - `npm run build`
+   - `npm run preview` (port 4173 is forwarded)
+
+Notes:
+- The container includes useful VS Code extensions (Volar, ESLint, Prettier) and forwards ports 5173 and 4173.
+- Node 18 is used to match the CI workflow and ensure parity with GitHub Pages builds.
+- Your local npm cache is mounted in the container for faster installs.
