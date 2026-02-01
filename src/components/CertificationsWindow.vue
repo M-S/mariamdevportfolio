@@ -2,55 +2,58 @@
 import BaseWindowFrame from '@/components/BaseWindowFrame.vue'
 </script>
 <template>
-  <base-window-frame
-    title="Certifications & Credentials"
-    variant="elevated"
-    color="success"
-    padding="lg"
-  >
-    <div class="certifications-content">
-      <p class="intro-text">Professional certifications demonstrating expertise in cybersecurity and cloud technologies:</p>
+  <base-window-frame title="Certifications & Badges" variant="elevated" color="success" padding="lg">
+    <div>
+      <div class="certifications-content">
+        <div class="certifications-list">
+          <a href="https://www.credly.com/badges/bb0d725c-4ef3-4844-a4e6-b82ddf7e0077/public_url" target="_blank"
+            class="cert-item">
+            <div class="cert-icon">🔐</div>
+            <div class="cert-info">
+              <h4 class="cert-name">ISC2 Certified in Cybersecurity</h4>
+              <p class="cert-badge">(CC) Credential</p>
+            </div>
+            <svg class="icon" style="width: 20px; height: 20px">
+              <use xlink:href="../assets/sprites/solid.svg#arrow-up-right"></use>
+            </svg>
+          </a>
 
-      <div class="certifications-list">
-        <a href="https://www.credly.com/badges/bb0d725c-4ef3-4844-a4e6-b82ddf7e0077/public_url" target="_blank" class="cert-item">
-          <div class="cert-icon">🔐</div>
-          <div class="cert-info">
-            <h4 class="cert-name">ISC2 Certified in Cybersecurity</h4>
-            <p class="cert-badge">(CC) Credential</p>
-          </div>
-          <svg class="icon" style="width: 20px; height: 20px">
-            <use xlink:href="../assets/sprites/solid.svg#arrow-up-right"></use>
-          </svg>
-        </a>
+          <a href="https://www.credly.com/badges/8f85ae5e-52f6-4a6c-ba3d-94720d544108/public_url" target="_blank"
+            class="cert-item">
+            <div class="cert-icon">🛡️</div>
+            <div class="cert-info">
+              <h4 class="cert-name">CompTIA Security+</h4>
+              <p class="cert-badge">CE Certification</p>
+            </div>
+            <svg class="icon" style="width: 20px; height: 20px">
+              <use xlink:href="../assets/sprites/solid.svg#arrow-up-right"></use>
+            </svg>
+          </a>
 
-        <a href="https://www.credly.com/badges/8f85ae5e-52f6-4a6c-ba3d-94720d544108/public_url" target="_blank" class="cert-item">
-          <div class="cert-icon">🛡️</div>
-          <div class="cert-info">
-            <h4 class="cert-name">CompTIA Security+</h4>
-            <p class="cert-badge">CE Certification</p>
+          <a href="https://www.credly.com/badges/19308c84-b5e7-4315-a13a-04e123be0e83" target="_blank"
+            class="cert-item">
+            <div class="cert-icon">☁️</div>
+            <div class="cert-info">
+              <h4 class="cert-name">Microsoft Certified</h4>
+              <p class="cert-badge">Azure Fundamentals</p>
+            </div>
+            <svg class="icon" style="width: 20px; height: 20px">
+              <use xlink:href="../assets/sprites/solid.svg#arrow-up-right"></use>
+            </svg>
+          </a>
+          <div>
+            <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4444453"
+              style='border:none;width: 330px;height: 90px;'></iframe>
           </div>
-          <svg class="icon" style="width: 20px; height: 20px">
-            <use xlink:href="../assets/sprites/solid.svg#arrow-up-right"></use>
-          </svg>
-        </a>
-
-        <a href="https://www.credly.com/badges/19308c84-b5e7-4315-a13a-04e123be0e83" target="_blank" class="cert-item">
-          <div class="cert-icon">☁️</div>
-          <div class="cert-info">
-            <h4 class="cert-name">Microsoft Certified</h4>
-            <p class="cert-badge">Azure Fundamentals</p>
-          </div>
-          <svg class="icon" style="width: 20px; height: 20px">
-            <use xlink:href="../assets/sprites/solid.svg#arrow-up-right"></use>
-          </svg>
-        </a>
+        </div>
       </div>
-
       <p class="view-more-text">
-        View more credentials on my
-        <a href="https://www.linkedin.com/in/mariam-reba-alexander-2231a2119/" target="_blank" class="linkedin-link">LinkedIn profile</a>.
+        View other credentials on my
+        <a href="https://www.linkedin.com/in/mariam-reba-alexander-2231a2119/" target="_blank"
+          class="linkedin-link">LinkedIn profile</a>.
       </p>
     </div>
+
   </base-window-frame>
 </template>
 <style scoped>
@@ -68,8 +71,9 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue'
 }
 
 .certifications-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: var(--spacing-md);
 }
 
@@ -123,7 +127,7 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue'
 }
 
 .view-more-text {
-  margin: 0;
+  margin: 8px 0 0 0;
   font-size: 0.9375rem;
   color: var(--color-text-secondary);
   text-align: center;

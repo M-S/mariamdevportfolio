@@ -5,18 +5,13 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue'
 const isImageHovered = ref(false)
 </script>
 <template>
-  <base-window-frame
-    title="Profile"
-    variant="elevated"
-    color="primary"
-    padding="lg"
-    class="profile-card"
-  >
+  <base-window-frame variant="outlined" color="primary" padding="sm" class="profile-card">
     <div class="profile-content">
       <div class="profile-image-container" @mouseenter="isImageHovered = true" @mouseleave="isImageHovered = false">
-        <img src="/profile.png" alt="Mariam's profile picture" class="profile-image" :class="{ hovered: isImageHovered }" />
+        <img src="/profile.png" alt="Mariam's profile picture" class="profile-image"
+          :class="{ hovered: isImageHovered }" />
       </div>
-      <p class="profile-text">Software Developer & Tech Speaker</p>
+      <p class="profile-text">Mariam Reba Alexander</p>
     </div>
   </base-window-frame>
 </template>

@@ -2,26 +2,28 @@
 import BaseWindowFrame from './BaseWindowFrame.vue'
 </script>
 <template>
-  <base-window-frame
-    title="Get in Touch"
-    subtitle="Connect with me"
-    variant="elevated"
-    color="primary"
-    padding="lg"
-  >
-    <div class="contact-links">
-      <a href="mailto:gigabit.02shuffle@icloud.com" class="contact-link" title="Send me an email">
-        <img src="/email.png" alt="Email" class="contact-icon" />
-        <span class="contact-label">Email</span>
-      </a>
-      <a href="https://www.linkedin.com/in/mariam-reba-alexander-2231a2119/" target="_blank" class="contact-link" title="Connect on LinkedIn">
-        <img src="/linkedin.png" alt="LinkedIn" class="contact-icon" />
-        <span class="contact-label">LinkedIn</span>
-      </a>
-    </div>
-  </base-window-frame>
+  <div class="contact-me-container">
+    <base-window-frame title="Get in Touch" subtitle="Connect with me" variant="elevated" color="primary" padding="lg">
+      <div class="contact-links">
+        <a href="mailto:gigabit.02shuffle@icloud.com" class="contact-link" title="Send me an email">
+          <img src="/email.png" alt="Email" class="contact-icon" />
+          <span class="contact-label">Email</span>
+        </a>
+        <a href="https://www.linkedin.com/in/mariam-reba-alexander-2231a2119/" target="_blank" class="contact-link"
+          title="Connect on LinkedIn">
+          <img src="/linkedin.png" alt="LinkedIn" class="contact-icon" />
+          <span class="contact-label">LinkedIn</span>
+        </a>
+      </div>
+    </base-window-frame>
+  </div>
 </template>
 <style scoped>
+.contact-me-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .contact-links {
   display: flex;
   gap: var(--spacing-xl);
@@ -70,6 +72,10 @@ import BaseWindowFrame from './BaseWindowFrame.vue'
 }
 
 @media (max-width: 640px) {
+  .contact-me-container {
+    width: 90%;
+  }
+
   .contact-links {
     gap: var(--spacing-lg);
   }
