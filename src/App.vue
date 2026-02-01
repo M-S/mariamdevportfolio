@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import BurgerMenuDropDown from '@/components/BurgerMenuDropDown.vue'
+import CookieConsent from '@/components/CookieConsent.vue'
 import { ref, watch } from 'vue'
 const isBurgerMenuOpen = ref(false);
 const router = useRouter();
@@ -31,6 +32,7 @@ watch(() => router.currentRoute.value, () => {
   </header>
 
   <RouterView />
+  <CookieConsent />
 </template>
 
 <style scoped>
