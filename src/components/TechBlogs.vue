@@ -36,24 +36,11 @@ onMounted(async () => {
 </script>
 <template>
   <div class="blog-section">
-    <div class="writing-image-container">
-      <img src="/writing.png" alt="Writing and blogging" class="writing-image" />
-    </div>
-    <base-window-frame
-      title="Latest Articles"
-      subtitle="Insights from Dev.to"
-      variant="elevated"
-      color="success"
-      padding="lg"
-    >
+    <base-window-frame title="Latest Articles" subtitle="Insights from Dev.to" variant="elevated" color="success"
+      padding="lg">
       <div class="blog-content">
-        <BaseImageFrame
-          :imageSrc="feedItems?.[itemSelected]?.cover_image"
-          width="100%"
-          height="250px"
-          :altText="feedItems?.[itemSelected]?.title"
-          class="blog-cover"
-        />
+        <BaseImageFrame :imageSrc="feedItems?.[itemSelected]?.cover_image" width="100%" height="250px"
+          :altText="feedItems?.[itemSelected]?.title" class="blog-cover" />
 
         <div class="blog-text-content">
           <a :href="feedItems?.[itemSelected]?.url" target="_blank" class="blog-title">

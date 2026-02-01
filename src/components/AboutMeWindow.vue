@@ -3,17 +3,11 @@ import BaseWindowFrame from '@/components/BaseWindowFrame.vue'
 import router from '@/router'
 </script>
 <template>
-  <base-window-frame
-    title="About Mariam"
-    subtitle="Software Engineer & Tech Speaker"
-    variant="elevated"
-    color="secondary"
-    padding="lg"
-  >
+  <base-window-frame title="About Mariam" subtitle="Software Engineer & Tech Speaker" variant="elevated"
+    color="secondary" padding="lg">
     <div class="about-content">
       <p class="bio-text">
-        Software Engineer working at Maersk, based in Copenhagen. Skilled in front-end development
-        with an interest in Cybersecurity.
+        Software Engineer with passion for building scalable and secure web applications.
         <a href="https://sessionize.com/MariamReba/" target="_blank" class="bio-link">Tech conference speaker</a> and
         <a href="https://dev.to/ms_74" target="_blank" class="bio-link">tech blogger</a>.
       </p>
