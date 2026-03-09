@@ -37,10 +37,11 @@ function reject() {
 }
 
 function analyticsConsentGranted() {
-    if (window?.gtag)
-        window.gtag('consent', 'update', {
-            'analytics_storage': 'granted'
-        });
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    gtag('consent', 'update', {
+        'analytics_storage': 'granted'
+    });
 }
 
 onMounted(() => {
