@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { initGTM, isGTMInitialized } from '@/services/gtm.service'
-
 const STORAGE_KEY = 'cookie_consent'
 const show = ref(false)
 
@@ -27,10 +25,8 @@ function saveConsent(consent: Consent) {
 
 function accept() {
     const consent = { analytics: true }
-    saveConsent(consent)
-    // Initialize GTM using env variable
-    const gtmId = import.meta.env.VITE_GTM_ID as string | undefined
-    if (gtmId) initGTM(gtmId)
+    saveConsent(consent);
+    analyticsConsentGranted();
     show.value = false
 }
 
@@ -40,16 +36,18 @@ function reject() {
     show.value = false
 }
 
+function analyticsConsentGranted() {
+    if (window?.gtag)
+        window.gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+        });
+}
+
 onMounted(() => {
     const consent = readConsent()
     if (!consent) {
         show.value = true
         return
-    }
-
-    if (consent.analytics) {
-        const gtmId = import.meta.env.VITE_GTM_ID as string | undefined
-        if (gtmId && !isGTMInitialized()) initGTM(gtmId)
     }
 })
 </script>
