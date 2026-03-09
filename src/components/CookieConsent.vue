@@ -50,6 +50,7 @@ onMounted(() => {
         show.value = true
         return
     }
+    analyticsConsentGranted();
 })
 </script>
 
