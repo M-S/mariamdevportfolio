@@ -1,0 +1,30 @@
+{
+  "name": "mariamdevportfolio (Dev Container)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspaces/mariamdevportfolio",
+  "remoteUser": "node",
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin"
+      ]
+    }
+  },
+  "forwardPorts": [5173, 4173],
+  "portsAttributes": {
+    "5173": { "label": "Vite Dev Server" },
+    "4173": { "label": "Vite Preview" }
+  },
+  "postCreateCommand": "npm ci",
+  "postStartCommand": "",
+  "mounts": [
+    "source=${localEnv:HOME}/.npm,target=/home/node/.npm,type=bind,consistency=cached"
+  ]
+}
