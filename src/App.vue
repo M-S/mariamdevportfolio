@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import BurgerMenuDropDown from '@/components/BurgerMenuDropDown.vue'
+import CookieConsent from '@/components/CookieConsent.vue'
 import { ref } from 'vue'
 const isBurgerMenuOpen = ref(false);
 </script>
@@ -9,12 +10,7 @@ const isBurgerMenuOpen = ref(false);
   <header>
     <nav class="navbar">
       <div class="burger-menu" @click="isBurgerMenuOpen = !isBurgerMenuOpen">
-        <img
-          v-if="!isBurgerMenuOpen"
-          src="./assets/icons/burger-bar.png"
-          alt="menu"
-          height="20px"
-        />
+        <img v-if="!isBurgerMenuOpen" src="./assets/icons/burger-bar.png" alt="menu" height="20px" />
         <img v-else src="./assets/icons/close.png" alt="close" height="16px" />
       </div>
       <div class="home-button">
@@ -30,6 +26,7 @@ const isBurgerMenuOpen = ref(false);
   </header>
 
   <RouterView />
+  <CookieConsent />
 </template>
 
 <style scoped>
@@ -54,6 +51,7 @@ const isBurgerMenuOpen = ref(false);
     font-weight: bold;
     padding: 4px;
     color: var(--mp-black);
+
     :hover {
       background-color: var(--mp-purple-light);
     }
