@@ -14,38 +14,24 @@ import StickyNote from '@/components/BaseStickyNote.vue'
     </div>
     <div class="hide-mobile row-3">
       <CertificationsWindow />
-      <StickyNote class="badge-container">
-        <h2>My Badges</h2>
-        <h3>TryHackMe</h3>
-        <iframe
-          src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4444453"
-          style="border: none"
-        ></iframe>
-      </StickyNote>
     </div>
     <div id="contact-section" class="row-3">
       <ContactMeWindow />
       <img class="hide-mobile social-media" src="/social-media.png" alt="social media icons" width="200px" />
     </div>
-    <div id="blog-section" class="hide-mobile row-2">
-      <TechBlogsVue />
-    </div>
+
   </div>
   <div class="credits">
     Credits:
-    <a href="https://www.flaticon.com/free-stickers/coding" title="coding stickers"
-      >Coding stickers created by Stickers - Flaticon</a
-    >|
-    <a href="https://www.flaticon.com/free-stickers/certificate" title="certificate stickers"
-      >Certificate stickers created by Stickers - Flaticon</a
-    >
+    <a href="https://www.flaticon.com/free-stickers/coding" title="coding stickers">Coding stickers created by Stickers
+      - Flaticon</a>|
+    <a href="https://www.flaticon.com/free-stickers/certificate" title="certificate stickers">Certificate stickers
+      created by Stickers - Flaticon</a>
     |
-    <a href="https://www.flaticon.com/free-icons/menu" title="menu icons"
-      >Menu icons created by Febrian Hidayat - Flaticon</a
-    >|
-    <a href="https://www.flaticon.com/free-icons/close" title="close icons"
-      >Close icons created by ariefstudio - Flaticon</a
-    >
+    <a href="https://www.flaticon.com/free-icons/menu" title="menu icons">Menu icons created by Febrian Hidayat -
+      Flaticon</a>|
+    <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by ariefstudio -
+      Flaticon</a>
   </div>
 </template>
 
@@ -83,6 +69,7 @@ import StickyNote from '@/components/BaseStickyNote.vue'
 }
 
 .badge-container {
+
   h2,
   h3 {
     color: var(--mp-black);
@@ -91,6 +78,7 @@ import StickyNote from '@/components/BaseStickyNote.vue'
 
 .hide-mobile {
   display: none;
+
   @media (min-width: 768px) {
     display: block;
   }
@@ -117,10 +105,12 @@ import StickyNote from '@/components/BaseStickyNote.vue'
     grid-template-columns: 2fr 1fr;
   }
 }
+
 .credits {
   display: flex;
   justify-content: center;
   font-size: 8px;
+
   a {
     color: var(--mp-blue);
   }

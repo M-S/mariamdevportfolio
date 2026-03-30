@@ -45,7 +45,7 @@ onMounted(async () => {
   <div class="speaking-events-wrapper" v-if="mySpeakingSessions.length">
     <h1>Speaking</h1>
     <img src="/speaking.png" alt="speaking icon" width="400px" />
-    <h2>Current Sessions</h2>
+    <h2>Current Session</h2>
     <ul>
       <li v-for="session in mySpeakingSessions" :key="session.id">
         <h3 class="section-title">{{ session.title }}</h3>
@@ -55,7 +55,7 @@ onMounted(async () => {
         Read more on sessionize
       </a>
     </ul>
-    <h2>Past Speaking Events</h2>
+    <h2>Speaking Events</h2>
     <table class="past-events-table">
       <thead>
         <tr>
@@ -68,6 +68,7 @@ onMounted(async () => {
         <tr v-for="event in mySpeakingEvents" :key="event.id">
           <td>
             <a :href="event.website" target="_blank" rel="noopener noreferrer">{{ event.name }}</a>
+            {{ event.eventStartDate > new Date().toISOString() ? ' (upcoming)' : '' }}
           </td>
           <td>{{ event.location ? event.location : 'Online' }}</td>
           <td>{{ getEventDate(event) }}</td>
@@ -85,6 +86,7 @@ onMounted(async () => {
   img {
     border: 1px solid var(--color-border);
     box-shadow: 0 0 10px var(--color-border);
+
     @media(max-width: 768px) {
       width: 80vw;
     }
